@@ -1,0 +1,48 @@
+{
+  "service": [
+    {
+      "title": "Gekås ullared",
+      "type": "Concrete",
+      "start": "2022-01",
+      "done": "2022-06",
+      "customer": "Rosanna AB",
+      "country": "Sweden",
+      "city": "Copenhagen",
+      "status": "Ongoing",
+      "id": 1
+    },
+    {
+      "title": "Kungälv Station",
+      "type": "Foundation",
+      "start": "2022-01",
+      "done": "2022-06",
+      "customer": "Gregers wcservice ab",
+      "country": "Sweden",
+      "city": "Copenhagen",
+      "status": "Not started",
+      "id": 2
+    },
+    {
+      "title": "test",
+      "type": "Pavement",
+      "start": "2022-06",
+      "done": "2022-11",
+      "customer": "Test",
+      "country": "Denmark",
+      "city": "Copenhagen",
+      "status": "Not started",
+      "id": 3
+    },
+    {
+      "title": "Legoland",
+      "type": "Infra Service",
+      "start": "2022-03",
+      "done": "2023-03",
+      "customer": "Legoland AB",
+      "country": "Denmark",
+      "city": "Copenhagen",
+      "status": "Ongoing",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+@import "../App.sass"
+
+
+
+.container
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  width: 100%
+ 
+// Button
+// color: $mainColor
+button
+    display: flex
+    background: white
+    color: $mainColor
+    height: 2rem
+    width: auto
+    border-radius: 1rem
+    border: 2px solid $mainColor
+    font-weight: bold
+    padding: .5rem
+    justify-content: center
+    align-items: center
+    cursor: pointer
+
+button:hover
+    background: $mainColor
+    color: white
+
+.search
+
+    display: flex
+
+    input
+        background: white
+        color: $mainColor
+        border: 2px solid $mainColor
+        border-radius: 1rem 0rem 0rem 1rem
+        height: auto
+        padding: .5rem 1rem
+        font-size: 1.5rem
+    
+    
+    button
+   
+        border-radius: 0rem 1rem 1rem 0rem
+        border-left: none
+        font-size: 1.5rem
+        height: auto
+
+.container
+    .card-container
+        display: flex
+        max-width: 62rem
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+ 
+        .card
+            width: 24rem
+            display: flex
+            flex-direction: row
+            border-bottom: 1px solid lightgrey
+            margin: 2rem
+   
+
+        .left
+            width: 60%
+
+        .right 
+            width: 40%
+            display: flex
+            flex-direction: column
+            align-items: center
+
+        p
+            flex-direction: column   
+
+        
+        button
+            margin-top: .5rem
+            width: 4.5rem
+    
+        .type-img
+            height: 10rem
+            width: 10rem
+            border-radius: 50%
+            margin-bottom: 1rem
+
+h1
+    font-weight: bold

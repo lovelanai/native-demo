@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  display: flex;
+  background: white;
+  color: #153275;
+  width: auto;
+  border-radius: 1rem;
+  border: 2px solid #153275;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #153275;
+  color: white;
+}
+
+.search {
+  display: flex;
+}
+.search input {
+  background: white;
+  color: #153275;
+  border: 2px solid #153275;
+  border-radius: 1rem 0rem 0rem 1rem;
+  height: auto;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+.search button {
+  border-radius: 0rem 1rem 1rem 0rem;
+  border-left: none;
+  font-size: 1.5rem;
+  height: auto;
+}
+
+.card {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 1px solid lightgrey;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  /* .right 
+  *  width: 50% */
+}
+.card .left {
+  width: 50%;
+}
+.card p {
+  flex-direction: column;
+}
+
+.type-img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+h1 {
+  font-weight: bold;
+}/*# sourceMappingURL=Frontpage.css.map */

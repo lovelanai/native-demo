@@ -1,0 +1,20 @@
+.service button {
+  margin: 0.3125em;
+}
+
+.swal2-actions button {
+  margin: 0.3125em;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.card .button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}/*# sourceMappingURL=Service.css.map */
