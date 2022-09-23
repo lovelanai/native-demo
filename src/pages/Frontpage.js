@@ -9,9 +9,11 @@ import { useService } from "../Context/service.context";
 
 import "../Style/Frontpage.sass";
 
+
 const Frontpage = () => {
   //const [id, setId] = useState("");
   const { getAllServices, services, getServiceById, id, setId } = useService();
+
 
   //console.log(services);
   const navigate = useNavigate();
@@ -26,11 +28,11 @@ const Frontpage = () => {
     navigate("/add");
   };
 
+  
+
   const onChangeInput = (e) => {
     setId(e.target.value);
     console.log(id);
-    // console.log(id);
-    // getServiceById(id);
   };
 
   useEffect(() => {
@@ -51,9 +53,8 @@ const Frontpage = () => {
         <button onClick={fetchServiceById}>Search</button>
       </div>
       <br />
-      {/* <br /> */}
       <Space size="middle" style={{ margin: 10 }}>
-        <button /* type="primary"*/>Show all</button>
+        <button>Show all</button>
 
         <button onClick={addNewService}>Add new </button>
       </Space>
@@ -63,7 +64,7 @@ const Frontpage = () => {
         {services.map((service) => (
           <div key={service.id} className="card">
             <div className="left">
-              <h3>"Project: " {service.title}</h3>
+              <h3>Project: {service.title}</h3>
               <p>Id: {service.id}</p>
               <p>Service : {service.type}</p>
               <p>Start: {service.start}</p>

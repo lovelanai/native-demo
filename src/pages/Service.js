@@ -1,6 +1,7 @@
 import { Space } from "antd";
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+//import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+//import Swal from "sweetalert2";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
@@ -9,6 +10,7 @@ import { useService } from "../Context/service.context";
 import "../Style/Service.sass";
 
 const Service = () => {
+
   const { getServiceById, id, setId, service } = useService();
 
   const navigate = useNavigate();
@@ -29,6 +31,11 @@ const Service = () => {
     setId("");
     navigate(`/service/${id}`);
   };
+
+
+  const goToEdit = () => {
+    navigate("/edit")
+  }
 
   return (
     <div className="container">
@@ -86,7 +93,7 @@ const Service = () => {
               Delete
             </button>
 
-            <button type="primary">Edit </button>
+            <button type="primary" onClick={goToEdit}>Edit </button>
           </div>
         </div>
       </div>
