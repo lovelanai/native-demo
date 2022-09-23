@@ -1,6 +1,7 @@
 import { Space } from "antd";
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+//import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+//import Swal from "sweetalert2";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
@@ -10,7 +11,9 @@ import "../Style/Service.sass";
 import Swal from "sweetalert2";
 
 const Service = () => {
+
   const { getServiceById, id, setId, service, deleteService } = useService();
+
 
   const navigate = useNavigate();
 
@@ -29,6 +32,7 @@ const Service = () => {
     setId("");
     navigate(`/service/${id}`);
   };
+
 
   const handleDelete = () => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -83,6 +87,7 @@ const Service = () => {
         }
       });
   };
+
 
   return (
     <div className="container">
@@ -144,7 +149,7 @@ const Service = () => {
               Delete
             </button>
 
-            <button type="primary">Edit </button>
+            <button type="primary" onClick={goToEdit}>Edit </button>
           </div>
         </div>
       </div>
