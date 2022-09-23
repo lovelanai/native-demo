@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 
 const Frontpage = () => {
   //const [id, setId] = useState("");
-  const { getAllServices, services, getServiceById, id, setId, service } =
+  const { getAllServices, services, getServiceById, id, setId, service, setService } =
     useService();
 
   //console.log(services);
@@ -21,6 +21,7 @@ const Frontpage = () => {
   const fetchServiceById = () => {
     getServiceById(id);
     navigate(`/service/${id}`);
+    setId("")
   };
 
   const onChangeInput = (e) => {
@@ -36,7 +37,6 @@ const Frontpage = () => {
 
   return (
     <div className="container">
-      <button onClick={getAllServices}>Lick me</button>
       <h1 style={{ textAlign: "center" }}>Services</h1>
       <div className="search">
         <input
@@ -61,7 +61,7 @@ const Frontpage = () => {
         {services.map((service) => (
           <div key={service.id} className="card">
             <div className="left">
-              <h3>{"Project: " + service.title}</h3>
+              <h3>"Project: " {service.title}</h3>
               <p>Id: {service.id}</p>
               <p>Service : {service.type}</p>
               <p>Start: {service.start}</p>

@@ -1,16 +1,22 @@
 import {
   createContext,
-  ReactNode,
+
   useState,
-  useEffect,
+
   useContext,
 } from "react";
-import Service from "../pages/Service";
-import { useParams } from "react-router-dom";
-export const ServiceContext = createContext();
 
-const ServiceProvider = ({ children }) => {
-  const param = useParams();
+
+export const ServiceContext = createContext(/* {
+  id: "",
+  service: {},
+  services: [],
+  getAllServices: () => undefined,
+  getServiceById: () => undefined,
+} */);
+
+const ServiceProvider = (props) => {
+
 
   const [id, setId] = useState("");
   const [service, setService] = useState({
@@ -32,7 +38,9 @@ const ServiceProvider = ({ children }) => {
     try {
       const response = await fetch("http://localhost:4000/service");
       const result = await response.json();
+      localStorage.setItem("services", JSON.stringify(result));
       setServices(result);
+
     } catch (err) {
       console.log(err);
     }
@@ -48,6 +56,9 @@ const ServiceProvider = ({ children }) => {
       console.log(err);
     }
   }
+  
+
+
 
   return (
     <ServiceContext.Provider
@@ -56,11 +67,13 @@ const ServiceProvider = ({ children }) => {
         getServiceById,
         id,
         setId,
+        setService,
         service,
         services,
+    
       }}
     >
-      {children}
+      {props.children}
     </ServiceContext.Provider>
   );
 };

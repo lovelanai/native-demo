@@ -8,23 +8,43 @@ import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
 import "../Style/Service.sass";
-import { useService } from "../Context/service.context";
+import { useService } from "../Context/service.context"
 
 const Service = () => {
-  const { getAllServices, services, getServiceById, id, setId, service } =
+  const { getAllServices, services, getServiceById, id, setId, service, setService } =
     useService();
 
   const params = useParams();
 
   const navigate = useNavigate();
 
-  //const [id, setId] = useState(`${param.id}`);
+  const storedServices = JSON.parse(localStorage.getItem("services"));
+
 
   const onChangeInput = (e) => {
     setId(e.target.value);
   };
 
-  const fetchServiceById = () => {};
+   const showAll = () => {
+    navigate("/")
+  }
+ 
+
+
+  const fetchServiceById = () => {
+    console.log('i fetch', storedServices[id - 1].id)
+      getServiceById(id);
+      setId("")
+      navigate(`/service/${id}`);
+  };
+
+
+
+ 
+
+
+
+
 
   return (
     <div className="container">
@@ -41,11 +61,11 @@ const Service = () => {
       </div>
       <br />
 
-      <Space size="middle" style={{ margin: 10 }}>
-        <button>Show all</button>
+       <Space size="middle" style={{ margin: 10 }}> 
+        <button onClick={showAll}>Show all</button>
 
-        <button>Add new </button>
-      </Space>
+        <button >Add new </button>
+      </Space> 
       <br />
       <br />
 
