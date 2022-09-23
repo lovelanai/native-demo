@@ -1,18 +1,49 @@
 import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
 import { useService } from "../Context/service.context";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddServices = () => {
-  /* const navigate = useNavigate(); */
+  const navigate = useNavigate();
 
   const { service, setService, createService } = useService();
 
   const handleSubmit = () => {
     createService(service);
+
+    let timerInterval = Swal.fire({
+      icon: "success",
+      title: "New service added!",
+      html: "Redirecting to homepage...",
+      timer: 2000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const b = Swal.getHtmlContainer().querySelector("b");
+        timerInterval = setInterval(() => {}, 500);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      if (result.dismiss === Swal.DismissReason.timer) {
+        console.log("I was closed by the timer");
+        navigate("/");
+      }
+    });
   };
 
-  const handleInputChange = (e, checked) => {
+  const handleInputChange = (e) => {
     let { name, value } = e.target;
     setService({ ...service, [name]: value });
+  };
+
+  const handleSwitch = (checked) => {
+    if (checked) {
+      setService({ ...service, status: "Ongoing" });
+    } else {
+      setService({ ...service, status: "Not started" });
+    }
   };
 
   return (
@@ -108,7 +139,7 @@ const AddServices = () => {
             }}
           >
             <p style={{ margin: "0 0.5rem" }}>Not started</p>
-            <Switch defaultChecked={false} />
+            <Switch defaultChecked={false} onChange={handleSwitch} />
             <p style={{ margin: "0 0.5rem" }}>Ongoing</p>
           </div>
         </Form.Item>
