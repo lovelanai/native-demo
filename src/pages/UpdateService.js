@@ -4,6 +4,7 @@ import "moment/locale/zh-cn";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useService } from "../Context/service.context";
+import Swal from "sweetalert2";
 
  const UpdateService = () => {
    const navigate = useNavigate();
@@ -18,7 +19,27 @@ import { useService } from "../Context/service.context";
 
   const handleSubmit = () => {
 updateService(service, service.id);
-   navigate("/");
+
+let timerInterval = Swal.fire({
+  icon: "success",
+  title: "Service edited!",
+  html: "Redirecting to homepage...",
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading();
+    const b = Swal.getHtmlContainer().querySelector("b");
+    timerInterval = setInterval(() => {}, 500);
+  },
+  willClose: () => {
+    clearInterval(timerInterval);
+  },
+}).then((result) => {
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log("I was closed by the timer");
+    navigate("/");
+  }
+});
  };
 
   const handleSwitch = (checked) => {
