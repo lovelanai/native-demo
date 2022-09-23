@@ -1,8 +1,8 @@
 import React from "react";
 import { Space } from "antd";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
+//import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+//import Swal from "sweetalert2";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
@@ -11,10 +11,10 @@ import "../Style/Service.sass";
 import { useService } from "../Context/service.context"
 
 const Service = () => {
-  const { getAllServices, services, getServiceById, id, setId, service, setService } =
+  const {  getServiceById, id, setId, service } =
     useService();
 
-  const params = useParams();
+  /* const params = useParams(); */
 
   const navigate = useNavigate();
 
@@ -37,6 +37,10 @@ const Service = () => {
       setId("")
       navigate(`/service/${id}`);
   };
+
+  const goToEdit = () => {
+    navigate("/edit")
+  }
 
 
 
@@ -87,25 +91,25 @@ const Service = () => {
               <img
                 className="type-img"
                 src={pavementImg}
-                alt="Pavement image"
+                alt="Pavement"
               />
             ) : service.type === "Concrete" ? (
               <img
                 className="type-img"
                 src={concreteImg}
-                alt="Concrete image"
+                alt="Concrete"
               />
             ) : service.type === "Infra Service" ? (
               <img
                 className="type-img"
                 src={infraServiceImg}
-                alt="Infra Service image"
+                alt="Infra Service"
               />
             ) : service.type === "Foundation" ? (
               <img
                 className="type-img"
                 src={foundationImg}
-                alt="Foundation image"
+                alt="Foundation"
               />
             ) : (
               <></>
@@ -114,7 +118,7 @@ const Service = () => {
               Delete
             </button>
 
-            <button type="primary">Edit </button>
+            <button type="primary" onClick={goToEdit}>Edit </button>
           </div>
         </div>
       </div>

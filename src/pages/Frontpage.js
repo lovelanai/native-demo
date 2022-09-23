@@ -1,5 +1,5 @@
 import { Space } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
@@ -8,11 +8,11 @@ import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
 
 import "../Style/Frontpage.sass";
-import Swal from "sweetalert2";
+//import Swal from "sweetalert2";
 
 const Frontpage = () => {
   //const [id, setId] = useState("");
-  const { getAllServices, services, getServiceById, id, setId, service, setService } =
+  const { getAllServices, services, getServiceById, id, setId} =
     useService();
 
   //console.log(services);
@@ -24,11 +24,11 @@ const Frontpage = () => {
     setId("")
   };
 
+  
+
   const onChangeInput = (e) => {
     setId(e.target.value);
     console.log(id);
-    // console.log(id);
-    // getServiceById(id);
   };
 
   useEffect(() => {
@@ -49,9 +49,8 @@ const Frontpage = () => {
         <button onClick={fetchServiceById}>Search</button>
       </div>
       <br />
-      {/* <br /> */}
       <Space size="middle" style={{ margin: 10 }}>
-        <button /* type="primary"*/>Show all</button>
+        <button>Show all</button>
 
         <button>Add new </button>
       </Space>
@@ -61,7 +60,7 @@ const Frontpage = () => {
         {services.map((service) => (
           <div key={service.id} className="card">
             <div className="left">
-              <h3>"Project: " {service.title}</h3>
+              <h3>Project: {service.title}</h3>
               <p>Id: {service.id}</p>
               <p>Service : {service.type}</p>
               <p>Start: {service.start}</p>
@@ -76,25 +75,25 @@ const Frontpage = () => {
                 <img
                   className="type-img"
                   src={pavementImg}
-                  alt="Pavement image"
+                  alt="Pavement"
                 />
               ) : service.type === "Concrete" ? (
                 <img
                   className="type-img"
                   src={concreteImg}
-                  alt="Concrete image"
+                  alt="Concrete"
                 />
               ) : service.type === "Infra Service" ? (
                 <img
                   className="type-img"
                   src={infraServiceImg}
-                  alt="Infra Service image"
+                  alt="Infra Service"
                 />
               ) : service.type === "Foundation" ? (
                 <img
                   className="type-img"
                   src={foundationImg}
-                  alt="Foundation image"
+                  alt="Foundation"
                 />
               ) : (
                 <></>
