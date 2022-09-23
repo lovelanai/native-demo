@@ -83,6 +83,27 @@ const ServiceProvider = (props) => {
   };
 
 
+  // Deletes a service by id
+
+  async function deleteService(id, service) {
+    try {
+      let result = await fetch(`http://localhost:4000/service/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (result.ok) {
+        result = await result.json();
+        services.push(service);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <ServiceContext.Provider
       value={{
@@ -95,6 +116,7 @@ const ServiceProvider = (props) => {
         service,
         services,
         createService,
+        deleteService,
 
       }}
     >

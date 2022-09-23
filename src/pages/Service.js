@@ -8,10 +8,12 @@ import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
 import "../Style/Service.sass";
+import Swal from "sweetalert2";
 
 const Service = () => {
 
-  const { getServiceById, id, setId, service } = useService();
+  const { getServiceById, id, setId, service, deleteService } = useService();
+
 
   const navigate = useNavigate();
 
@@ -26,16 +28,66 @@ const Service = () => {
   };
 
   const fetchServiceById = () => {
-    console.log("i fetch", storedServices[id - 1].id);
     getServiceById(id);
     setId("");
     navigate(`/service/${id}`);
   };
 
 
-  const goToEdit = () => {
-    navigate("/edit")
-  }
+  const handleDelete = () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+        timer: 2000,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          let timerInterval;
+          Swal.fire({
+            icon: "success",
+            title: "Service Deleted!",
+            html: "Redirecting to homepage...",
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading();
+              const b = Swal.getHtmlContainer().querySelector("b");
+              timerInterval = setInterval(() => {}, 500);
+            },
+            willClose: () => {
+              clearInterval(timerInterval);
+            },
+          }).then(() => {
+            deleteService(service.id);
+            navigate("/");
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "No changes has been made",
+            "error"
+          );
+        }
+      });
+  };
+
 
   return (
     <div className="container">
@@ -89,7 +141,11 @@ const Service = () => {
             ) : (
               <></>
             )}
-            <button style={{ cursor: "pointer" }} type="primary">
+            <button
+              onClick={handleDelete}
+              style={{ cursor: "pointer" }}
+              type="primary"
+            >
               Delete
             </button>
 
