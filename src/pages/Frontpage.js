@@ -1,5 +1,5 @@
 import { Space } from "antd";
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
@@ -8,12 +8,12 @@ import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
 
 import "../Style/Frontpage.sass";
-//import Swal from "sweetalert2";
+
 
 const Frontpage = () => {
   //const [id, setId] = useState("");
-  const { getAllServices, services, getServiceById, id, setId} =
-    useService();
+  const { getAllServices, services, getServiceById, id, setId } = useService();
+
 
   //console.log(services);
   const navigate = useNavigate();
@@ -21,7 +21,11 @@ const Frontpage = () => {
   const fetchServiceById = () => {
     getServiceById(id);
     navigate(`/service/${id}`);
-    setId("")
+    setId("");
+  };
+
+  const addNewService = () => {
+    navigate("/add");
   };
 
   
@@ -52,7 +56,7 @@ const Frontpage = () => {
       <Space size="middle" style={{ margin: 10 }}>
         <button>Show all</button>
 
-        <button>Add new </button>
+        <button onClick={addNewService}>Add new </button>
       </Space>
       <br />
       <br />
@@ -72,17 +76,9 @@ const Frontpage = () => {
             </div>
             <div className="right">
               {service.type === "Pavement" ? (
-                <img
-                  className="type-img"
-                  src={pavementImg}
-                  alt="Pavement"
-                />
+                <img className="type-img" src={pavementImg} alt="Pavement" />
               ) : service.type === "Concrete" ? (
-                <img
-                  className="type-img"
-                  src={concreteImg}
-                  alt="Concrete"
-                />
+                <img className="type-img" src={concreteImg} alt="Concrete" />
               ) : service.type === "Infra Service" ? (
                 <img
                   className="type-img"

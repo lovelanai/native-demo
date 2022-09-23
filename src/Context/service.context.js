@@ -1,12 +1,8 @@
 import { createContext, useState, useContext } from "react";
 
-export const ServiceContext = createContext({
-  id: "",
-  service: "",
-  services: [],
-  getAllServices: () => undefined,
-  getServiceById: () => undefined,
-});
+
+export const ServiceContext = createContext({});
+
 
 const ServiceProvider = (props) => {
   const [id, setId] = useState("");
@@ -45,6 +41,7 @@ const ServiceProvider = (props) => {
     } catch (err) {
       console.log(err);
     }
+
   };
 
   // Updates service
@@ -62,11 +59,29 @@ const ServiceProvider = (props) => {
       if (response.ok) {
         const result = await response.json();
         console.log(result)
+  }
+  }
+
+  // Gets all services
+  async function createService() {
+    try {
+      let result = await fetch("http://localhost:4000/service", {
+        method: "post",
+        body: JSON.stringify(service),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+      if (result.ok) {
+        result = await result.json();
+        services.push(service);
       }
     } catch (err) {
       console.log(err);
     }
   };
+
 
   return (
     <ServiceContext.Provider
@@ -79,6 +94,8 @@ const ServiceProvider = (props) => {
         setService,
         service,
         services,
+        createService,
+
       }}
     >
       {props.children}
