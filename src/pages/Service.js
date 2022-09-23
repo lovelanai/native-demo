@@ -33,6 +33,10 @@ const Service = () => {
     navigate(`/service/${id}`);
   };
 
+  const goToEdit = () => {
+    navigate("/edit")
+  }
+
 
   const handleDelete = () => {
     const swalWithBootstrapButtons = Swal.mixin({
