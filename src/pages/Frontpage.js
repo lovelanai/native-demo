@@ -37,6 +37,8 @@ const Frontpage = () => {
     getAllServices();
   }, []);
 
+  const storedServices = JSON.parse(localStorage.getItem("services"));
+
   return (
     <div className="container">
       <h1 style={{ textAlign: "center" }}>Services</h1>
@@ -60,7 +62,7 @@ const Frontpage = () => {
       <br />
       <br />
       <div className="card-container">
-        {services.map((service) => (
+        {storedServices.map((service) => (
           <div key={service.id} className="card">
             <div className="left">
               <h3>"Project: " {service.title}</h3>
