@@ -1,22 +1,18 @@
 import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
-import React, { useState } from "react";
+import { useService } from "../Context/service.context";
 
 const AddServices = () => {
   /* const navigate = useNavigate(); */
-  const [state, setState] = useState({
-    title: "",
-    type: "",
-    start: "",
-    done: "",
-    customer: "",
-    country: "",
-    city: "",
-    status: "Not started",
-  });
+
+  const { service, setService, createService } = useService();
+
+  const handleSubmit = () => {
+    createService(service);
+  };
 
   const handleInputChange = (e, checked) => {
     let { name, value } = e.target;
-    setState({ ...state, [name]: value });
+    setService({ ...service, [name]: value });
   };
 
   return (
@@ -117,7 +113,7 @@ const AddServices = () => {
           </div>
         </Form.Item>
         <Form.Item label="Button">
-          <Button>Add</Button>
+          <Button onClick={handleSubmit}>Add</Button>
         </Form.Item>
       </Form>
     </div>
