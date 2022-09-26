@@ -3,6 +3,7 @@ import { createContext, useState, useContext } from "react";
 
 export const ServiceContext = createContext({});
 
+const storedServices = JSON.parse(localStorage.getItem("services"));
 
 const ServiceProvider = (props) => {
   const [id, setId] = useState("");
@@ -38,8 +39,11 @@ const ServiceProvider = (props) => {
       const response = await fetch(`http://localhost:4000/service/${id}`);
       const result = await response.json();
       setService(result);
+      console.log(storedServices)
     } catch (err) {
       console.log(err);
+      setService(storedServices[id - 1])
+      console.log(service)
     }
 
   };

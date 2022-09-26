@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
  const UpdateService = () => {
    const navigate = useNavigate();
-   const { id, service, setService, updateService } =
+   const { service, setService, updateService } =
    useService();
 
 
@@ -28,7 +28,6 @@ let timerInterval = Swal.fire({
   timerProgressBar: true,
   didOpen: () => {
     Swal.showLoading();
-    const b = Swal.getHtmlContainer().querySelector("b");
     timerInterval = setInterval(() => {}, 500);
   },
   willClose: () => {

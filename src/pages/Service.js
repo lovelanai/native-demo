@@ -69,7 +69,7 @@ const Service = () => {
             timerProgressBar: true,
             didOpen: () => {
               Swal.showLoading();
-              const b = Swal.getHtmlContainer().querySelector("b");
+              
               timerInterval = setInterval(() => {}, 500);
             },
             willClose: () => {

@@ -12,7 +12,7 @@ import "../Style/Frontpage.sass";
 
 const Frontpage = () => {
   //const [id, setId] = useState("");
-  const { getAllServices, services, getServiceById, id, setId } = useService();
+  const { getAllServices, getServiceById, id, setId } = useService();
 
 
   //console.log(services);
