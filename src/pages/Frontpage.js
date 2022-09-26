@@ -1,5 +1,5 @@
 import { Space } from "antd";
-import React, { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
@@ -9,11 +9,9 @@ import { useService } from "../Context/service.context";
 
 import "../Style/Frontpage.sass";
 
-
 const Frontpage = () => {
   //const [id, setId] = useState("");
-  const { getAllServices, getServiceById, id, setId } = useService();
-
+  const { getServiceById, id, setId } = useService();
 
   //console.log(services);
   const navigate = useNavigate();
@@ -28,16 +26,10 @@ const Frontpage = () => {
     navigate("/add");
   };
 
-  
-
   const onChangeInput = (e) => {
     setId(e.target.value);
     console.log(id);
   };
-
-  useEffect(() => {
-    getAllServices();
-  }, []);
 
   const storedServices = JSON.parse(localStorage.getItem("services"));
 

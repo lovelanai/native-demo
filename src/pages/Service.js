@@ -11,13 +11,9 @@ import "../Style/Service.sass";
 import Swal from "sweetalert2";
 
 const Service = () => {
-
   const { getServiceById, id, setId, service, deleteService } = useService();
 
-
   const navigate = useNavigate();
-
-  const storedServices = JSON.parse(localStorage.getItem("services"));
 
   const onChangeInput = (e) => {
     setId(e.target.value);
@@ -34,9 +30,8 @@ const Service = () => {
   };
 
   const goToEdit = () => {
-    navigate("/edit")
-  }
-
+    navigate("/edit");
+  };
 
   const handleDelete = () => {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -69,7 +64,7 @@ const Service = () => {
             timerProgressBar: true,
             didOpen: () => {
               Swal.showLoading();
-              
+
               timerInterval = setInterval(() => {}, 500);
             },
             willClose: () => {
@@ -91,7 +86,6 @@ const Service = () => {
         }
       });
   };
-
 
   return (
     <div className="container">
@@ -153,7 +147,9 @@ const Service = () => {
               Delete
             </button>
 
-            <button type="primary" onClick={goToEdit}>Edit </button>
+            <button type="primary" onClick={goToEdit}>
+              Edit{" "}
+            </button>
           </div>
         </div>
       </div>
