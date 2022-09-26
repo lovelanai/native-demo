@@ -11,7 +11,7 @@ import "../Style/Frontpage.sass";
 
 const Frontpage = () => {
   //const [id, setId] = useState("");
-  const { getServiceById, id, setId } = useService();
+  const { getServiceById, id, setId, services } = useService();
 
   //console.log(services);
   const navigate = useNavigate();
@@ -30,8 +30,6 @@ const Frontpage = () => {
     setId(e.target.value);
     console.log(id);
   };
-
-  const storedServices = JSON.parse(localStorage.getItem("services"));
 
   return (
     <div className="container">
@@ -55,7 +53,7 @@ const Frontpage = () => {
       <br />
       <br />
       <div className="card-container">
-        {storedServices.map((service) => (
+        {services.map((service) => (
           <div key={service.id} className="card">
             <div className="left">
               <h3>Project: {service.title}</h3>

@@ -28,13 +28,10 @@ const ServiceProvider = (props) => {
       localStorage.setItem("services", JSON.stringify(result));
       setServices(result);
     } catch (err) {
+      setServices(storedServices);
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    getAllServices();
-  }, []);
 
   // Fetches service by id
   const getServiceById = async (id) => {
@@ -111,6 +108,10 @@ const ServiceProvider = (props) => {
       console.log(err);
     }
   }
+
+  useEffect(() => {
+    getAllServices();
+  }, [updateService]);
 
   return (
     <ServiceContext.Provider
