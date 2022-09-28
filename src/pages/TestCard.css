@@ -1,0 +1,18 @@
+.card-container {
+  background: red;
+}
+.card-container .card {
+  background: blue;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.card-container .card .card-text {
+  background: orange;
+  height: 50%;
+}
+.card-container .card .card-image {
+  display: flex;
+  background: green;
+  height: 50%;
+}/*# sourceMappingURL=TestCard.css.map */

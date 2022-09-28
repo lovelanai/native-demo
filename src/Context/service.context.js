@@ -1,5 +1,4 @@
-import { createContext, useState, useContext } from "react";
-
+import { createContext, useState, useContext, useEffect } from "react";
 
 export const ServiceContext = createContext({});
 
@@ -29,6 +28,7 @@ const ServiceProvider = (props) => {
       localStorage.setItem("services", JSON.stringify(result));
       setServices(result);
     } catch (err) {
+      setServices(storedServices);
       console.log(err);
     }
   };
@@ -39,19 +39,18 @@ const ServiceProvider = (props) => {
       const response = await fetch(`http://localhost:4000/service/${id}`);
       const result = await response.json();
       setService(result);
-      console.log(storedServices)
+      console.log(storedServices);
     } catch (err) {
       console.log(err);
-      setService(storedServices[id - 1])
-      console.log(service)
+      setService(storedServices[id - 1]);
+      console.log(service);
     }
-
   };
 
   // Updates service
   const updateService = async (service, id) => {
     console.log(service);
-    console.log(id)
+    console.log(id);
     try {
       const response = await fetch(`http://localhost:4000/service/${id}`, {
         method: "PUT",
@@ -62,11 +61,12 @@ const ServiceProvider = (props) => {
       });
       if (response.ok) {
         const result = await response.json();
-        console.log(result)
-  } } catch (err) {
-    console.log(err);
-  }
-  }
+        console.log(result);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   // Gets all services
   async function createService() {
@@ -86,8 +86,7 @@ const ServiceProvider = (props) => {
     } catch (err) {
       console.log(err);
     }
-  };
-
+  }
 
   // Deletes a service by id
 
@@ -104,11 +103,16 @@ const ServiceProvider = (props) => {
       if (result.ok) {
         result = await result.json();
         services.push(service);
+        getAllServices();
       }
     } catch (err) {
       console.log(err);
     }
   }
+
+  useEffect(() => {
+    getAllServices();
+  }, []);
 
   return (
     <ServiceContext.Provider
@@ -123,7 +127,6 @@ const ServiceProvider = (props) => {
         services,
         createService,
         deleteService,
-
       }}
     >
       {props.children}

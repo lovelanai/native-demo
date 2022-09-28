@@ -1,7 +1,9 @@
-import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
+import { Button, DatePicker, Form, Switch } from "antd";
 import { useService } from "../Context/service.context";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { resources } from "../resource";
+import "../Style/Form.sass";
 
 const AddServices = () => {
   const navigate = useNavigate();
@@ -13,8 +15,8 @@ const AddServices = () => {
 
     let timerInterval = Swal.fire({
       icon: "success",
-      title: "New service added!",
-      html: "Redirecting to homepage...",
+      title: `${resources.SWALDATA.SWALDATA_DELETE_SUCESS}`,
+      html: `${resources.SWALDATA.SWALDATA_DELETE_SUCESS_SPAN}`,
       timer: 2000,
       timerProgressBar: true,
       didOpen: () => {
@@ -26,7 +28,6 @@ const AddServices = () => {
       },
     }).then((result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
-        console.log("I was closed by the timer");
         navigate("/");
       }
     });
@@ -39,112 +40,168 @@ const AddServices = () => {
 
   const handleSwitch = (checked) => {
     if (checked) {
-      setService({ ...service, status: "Ongoing" });
+      setService({
+        ...service,
+        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING,
+      });
     } else {
-      setService({ ...service, status: "Not started" });
+      setService({
+        ...service,
+        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED,
+      });
     }
   };
 
   return (
-    <div>
-      <h1>Add new service</h1>
+    <div className="form">
+      <h1>{resources.TITLES.TITLES_PLACEHOLDER_ADD}</h1>
       <Form
-        labelCol={{ span: 4 }}
-        wrapperCol={{ span: 14 }}
-        layout="horizontal"
+        className="form-content"
+        layout="vertical"
         onSubmit={(e) => e.preventDefault()}
       >
-        <Form.Item label="Project Name">
-          <Input name="title" onChange={handleInputChange} />
+        <Form.Item
+          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TITLE}
+        >
+          <input className="input" name="title" onChange={handleInputChange} />
         </Form.Item>
-        <Form.Item label="Select type of service">
-          <Select
+        <Form.Item
+          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
+        >
+          <select
+            className="select"
             type="select"
             name="type"
             onChange={(select) =>
               handleInputChange({ target: { value: select, name: "type" } })
             }
           >
-            <Select.Option value="Pavement">Pavement</Select.Option>
-            <Select.Option value="Concrete">Concrete</Select.Option>
-            <Select.Option value="Foundation">Foundationing</Select.Option>
-            <Select.Option value="Infra Service">Infra Service</Select.Option>
-          </Select>
+            <option value=""></option>
+            <option value="Pavement">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_PAVEMENT}
+            </option>
+            <option value="Concrete">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_CONCRETE}
+            </option>
+            <option value="Foundation">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_FOUNDATIONING}
+            </option>
+            <option value="Infra Service">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_INFRA_SERVICE}
+            </option>
+          </select>
         </Form.Item>
+        <div className="date-container">
+          <Form.Item
+            label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_START}
+          >
+            <DatePicker
+              name="start"
+              className="input"
+              type="dateString"
+              onChange={(date, dateString) =>
+                handleInputChange({
+                  target: { value: date && dateString, name: "start" },
+                })
+              }
+            />
+          </Form.Item>
 
-        <Form.Item label="Start">
-          <DatePicker
-            name="start"
-            type="dateString"
-            onChange={(date, dateString) =>
-              handleInputChange({
-                target: { value: date && dateString, name: "start" },
-              })
-            }
-            picker="month"
+          <Form.Item
+            label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_END}
+          >
+            <DatePicker
+              name="done"
+              className="input"
+              type="dateString"
+              onChange={(date, dateString) =>
+                handleInputChange({
+                  target: { value: date && dateString, name: "done" },
+                })
+              }
+            />
+          </Form.Item>
+        </div>
+        <Form.Item
+          label={
+            resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CUSTOMER
+          }
+        >
+          <input
+            className="input"
+            onChange={handleInputChange}
+            name="customer"
           />
         </Form.Item>
 
-        <Form.Item label="End">
-          <DatePicker
-            name="done"
-            type="dateString"
-            onChange={(date, dateString) =>
-              handleInputChange({
-                target: { value: date && dateString, name: "done" },
-              })
-            }
-            picker="month"
-          />
-        </Form.Item>
-        <Form.Item label="Customer">
-          <Input onChange={handleInputChange} name="customer" />
-        </Form.Item>
-
-        <Form.Item label="Select Country">
-          <Select
+        <Form.Item
+          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
+        >
+          <select
+            className="select"
             type="select"
             name="country"
             onChange={(select) =>
               handleInputChange({ target: { value: select, name: "country" } })
             }
           >
-            <Select.Option value="Sweden">Sweden</Select.Option>
-            <Select.Option value="Denmark">Denmark</Select.Option>
-            <Select.Option value="Norway">Norway</Select.Option>
-          </Select>
+            <option value=""></option>
+            <option value="Sweden">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_SWEDEN}
+            </option>
+            <option value="Denmark">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_DENMARK}
+            </option>
+            <option value="Norway">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_NORWAY}
+            </option>
+          </select>
         </Form.Item>
 
-        <Form.Item label="Select City">
-          <Select
+        <Form.Item
+          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
+        >
+          <select
             type="select"
             name="city"
+            className="select"
             onChange={(select) =>
               handleInputChange({ target: { value: select, name: "city" } })
             }
           >
-            <Select.Option value="Stockholm">Stockholm</Select.Option>
-            <Select.Option value="Copenhagen">Copenhagen</Select.Option>
-            <Select.Option value="Oslo">Oslo</Select.Option>
-          </Select>
+            <option value=""></option>
+            <option value="Stockholm">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_STOCKHOLM}
+            </option>
+            <option value="Copenhagen">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_COPENHAGEN}
+            </option>
+            <option value="Oslo">
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_OSLO}
+            </option>
+          </select>
         </Form.Item>
 
-        <Form.Item label="Projectstatus" valuePropName="checked" name="status">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            <p style={{ margin: "0 0.5rem" }}>Not started</p>
+        <Form.Item
+          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_STATUS}
+          valuePropName="checked"
+          name="status"
+        >
+          <div className="status-container">
+            <p style={{ margin: "0 0.5rem" }}>
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED}
+            </p>
             <Switch defaultChecked={false} onChange={handleSwitch} />
-            <p style={{ margin: "0 0.5rem" }}>Ongoing</p>
+            <p style={{ margin: "0 0.5rem" }}>
+              {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING}
+            </p>
           </div>
         </Form.Item>
-        <Form.Item label="Button">
-          <Button onClick={handleSubmit}>Add</Button>
-        </Form.Item>
+        <div className="add-form-button-div">
+          <button onClick={handleSubmit}>
+            {resources.BUTTON.BUTTON_PLACEHOLDER_SUBMIT}
+          </button>
+        </div>
       </Form>
     </div>
   );

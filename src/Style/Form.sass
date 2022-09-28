@@ -1,0 +1,48 @@
+$mainColor: #153275
+
+.form
+    display: flex
+    align-items: center
+    justify-content: center 
+    flex-direction: column
+    width: 100%
+
+    .form-content
+        display: flex
+        width: 70%
+        flex-direction: column
+        justify-content: center
+
+        .status-container
+            display: flex
+            justify-content: flex-start
+
+        .select, .input
+            color: $mainColor
+            border-radius: 1rem
+            border: 2px solid $mainColor
+            font-weight: bold
+            padding: .5rem
+            width: 100%
+        
+        .select
+            cursor: pointer
+
+        .date-container
+            display: flex
+            justify-content: space-evenly
+
+        .edit-form-button-div, .add-form-button-div
+            display: flex
+            justify-content: flex-end
+            .edit-form-buttons
+                margin-left: 1rem
+            .cancel-button
+                border: grey 2px solid      
+                color: grey
+
+            
+        
+
+.ant-switch-checked
+    background: $mainColor

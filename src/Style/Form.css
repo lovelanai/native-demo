@@ -1,0 +1,47 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.form .form-content {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  justify-content: center;
+}
+.form .form-content .status-container {
+  display: flex;
+  justify-content: flex-start;
+}
+.form .form-content .select, .form .form-content .input {
+  color: #153275;
+  border-radius: 1rem;
+  border: 2px solid #153275;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 100%;
+}
+.form .form-content .select {
+  cursor: pointer;
+}
+.form .form-content .date-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.form .form-content .edit-form-button-div, .form .form-content .add-form-button-div {
+  display: flex;
+  justify-content: flex-end;
+}
+.form .form-content .edit-form-button-div .edit-form-buttons, .form .form-content .add-form-button-div .edit-form-buttons {
+  margin-left: 1rem;
+}
+.form .form-content .edit-form-button-div .cancel-button, .form .form-content .add-form-button-div .cancel-button {
+  border: grey 2px solid;
+  color: grey;
+}
+
+.ant-switch-checked {
+  background: #153275;
+}/*# sourceMappingURL=Form.css.map */
