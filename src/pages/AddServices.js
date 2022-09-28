@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { resources } from "../resource";
 import "../Style/Form.sass";
+import { useEffect } from "react";
 
 const AddServices = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const AddServices = () => {
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
+
     setService({ ...service, [name]: value });
     console.log(service)
   };
@@ -43,15 +45,20 @@ const AddServices = () => {
     if (checked) {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING,
+        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING
       });
     } else {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED,
+        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED
       });
     }
   };
+
+  useEffect(() => {
+    handleSwitch()
+  console.log("hej")
+  }, []);
 
   return (
     <div className="form">
@@ -191,7 +198,7 @@ const AddServices = () => {
             <p style={{ margin: "0 0.5rem" }}>
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED}
             </p>
-            <Switch defaultChecked={false} onChange={handleSwitch} />
+            <Switch defaultChecked={false} onChange={handleSwitch}/>
             <p style={{ margin: "0 0.5rem" }}>
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING}
             </p>
