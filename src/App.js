@@ -6,8 +6,10 @@ import Frontpage from "./pages/Frontpage";
 import Service from "./pages/Service";
 import TestCard from "./pages/TestCard";
 import UpdateService from "./pages/UpdateService";
+import {useTranslation} from "react-i18next"
 
 function App() {
+
   return (
     <div className="App">
       <Header />

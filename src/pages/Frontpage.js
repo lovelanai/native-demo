@@ -6,10 +6,14 @@ import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
+import {useTranslation} from "react-i18next"
 import { resources } from "../resource";
+
 import "../Style/Frontpage.sass";
 
 const Frontpage = () => {
+
+  const {t, i18n} = useTranslation('common')
   const { getServiceById, id, setId, services } = useService();
 
   const navigate = useNavigate();
