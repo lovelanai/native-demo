@@ -5,8 +5,10 @@ import AddServices from "./pages/AddServices";
 import Frontpage from "./pages/Frontpage";
 import Service from "./pages/Service";
 import UpdateService from "./pages/UpdateService";
+import {useTranslation} from "react-i18next"
 
 function App() {
+
   return (
     <div className="App">
       <Header />
