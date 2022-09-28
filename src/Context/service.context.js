@@ -103,6 +103,7 @@ const ServiceProvider = (props) => {
       if (result.ok) {
         result = await result.json();
         services.push(service);
+        getAllServices();
       }
     } catch (err) {
       console.log(err);
@@ -111,7 +112,7 @@ const ServiceProvider = (props) => {
 
   useEffect(() => {
     getAllServices();
-  }, [updateService]);
+  }, []);
 
   return (
     <ServiceContext.Provider

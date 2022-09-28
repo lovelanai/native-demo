@@ -1,20 +1,58 @@
-.service button {
-  margin: 0.3125em;
+/* .service
+ *  button
+ *      margin: 0.3125em */
+.swal2-actions > button {
+  margin: 0 1rem;
+  height: auto;
+  border: none;
+}
+.swal2-actions > button:first-child:hover {
+  background: #8388A4;
+}
+.swal2-actions > button:nth-child(2):hover {
+  background: green;
+}
+.swal2-actions > button:nth-child(3):hover {
+  background: #ff4545;
 }
 
-.swal2-actions button {
-  margin: 0.3125em;
-}
-
-.card-content {
+.container .card-container {
   display: flex;
-  align-items: center;
+  max-width: 62rem;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+}
+.container .card-container .card {
+  width: 24rem;
+  display: flex;
   flex-direction: row;
+  border-bottom: 1px solid lightgrey;
+  margin: 2rem;
+}
+.container .card-container .left {
+  width: 60%;
+}
+.container .card-container .right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .card-container p {
+  flex-direction: column;
+}
+.container .card-container button {
+  margin-top: 0.5rem;
+  width: 4.5rem;
+}
+.container .card-container .type-img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
-.card .button-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+h1 {
+  font-weight: bold;
 }/*# sourceMappingURL=Service.css.map */

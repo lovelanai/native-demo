@@ -1,7 +1,5 @@
 import { Space } from "antd";
-//import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import Swal from "sweetalert2";
 import concreteImg from "../Assets/concrete.jpg";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
@@ -9,6 +7,7 @@ import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
 import "../Style/Service.sass";
 import Swal from "sweetalert2";
+import { resources } from "../resource";
 
 const Service = () => {
   const { getServiceById, id, setId, service, deleteService } = useService();
@@ -44,12 +43,12 @@ const Service = () => {
 
     swalWithBootstrapButtons
       .fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: `${resources.SWALDATA.SWALDATA_DELETE_QUESTION_TITLE}`,
+        text: `${resources.SWALDATA.SWALDATA_DELETE_QUESTION_TEXT}`,
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
+        confirmButtonText: `${resources.SWALDATA.SWALDATA_DELETE_CONFIRM_BUTTON}`,
+        cancelButtonText: `${resources.SWALDATA.SWALDATA_DELETE_CANCEL_BUTTON}`,
         reverseButtons: true,
         timer: 2000,
       })
@@ -58,8 +57,8 @@ const Service = () => {
           let timerInterval;
           Swal.fire({
             icon: "success",
-            title: "Service Deleted!",
-            html: "Redirecting to homepage...",
+            title: `${resources.SWALDATA.SWALDATA_DELETE_SUCESS}`,
+            html: `${resources.SWALDATA.SWALDATA_DELETE_SUCESS_SPAN}`,
             timer: 2000,
             timerProgressBar: true,
             didOpen: () => {
@@ -89,23 +88,29 @@ const Service = () => {
 
   return (
     <div className="container">
-      <h1 style={{ textAlign: "center" }}>Services</h1>
+      <h1 style={{ textAlign: "center" }}>
+        {resources.TITLES.TITLES_PLACEHOLDER_HEADER}
+      </h1>
       <div className="search">
         <input
-          placeholder="Enter Service Id"
+          placeholder={resources.INPUT.INPUT_PLACEHOLDER_ENTERID}
           type="number"
           onChange={onChangeInput}
           value={id}
           style={{ width: "300px" }}
         />
-        <button onClick={fetchServiceById}>Search</button>
+        <button onClick={fetchServiceById}>
+          {resources.BUTTON.BUTTON_PLACEHOLDER_SEARCH}
+        </button>
       </div>
       <br />
 
       <Space size="middle" style={{ margin: 10 }}>
-        <button onClick={showAll}>Show all</button>
+        <button onClick={showAll}>
+          {resources.BUTTON.BUTTON_PLACEHOLDER_SHOW}
+        </button>
 
-        <button>Add new </button>
+        <button>{resources.BUTTON.BUTTON_PLACEHOLDER_ADD} </button>
       </Space>
       <br />
       <br />
@@ -113,15 +118,34 @@ const Service = () => {
       <div className="card-container">
         <div className="card">
           <div className="left">
-            <h3>Project: {service.title}</h3>
-            <p>Id: {service.id}</p>
-            <p>Service: {service.type}</p>
-            <p>Start:{service.start}</p>
-            <p>Completed:{service.done}</p>
-            <p>Customer: {service.customer}</p>
-            <p>Country: {service.country}</p>
-            <p>City: {service.city}</p>
-            <p>Status: {service.status}</p>
+            <h3>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_TITLE} {service.title}
+            </h3>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_ID} {service.id}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_SERVICE} {service.type}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_START} {service.start}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_DONE} {service.done}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_CUSTOMER}{" "}
+              {service.customer}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_COUNTRY} {service.country}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_CITY} {service.city}
+            </p>
+            <p>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_STATUS} {service.status}
+            </p>
           </div>
           <div className="right">
             {service.type === "Pavement" ? (
@@ -144,11 +168,11 @@ const Service = () => {
               style={{ cursor: "pointer" }}
               type="primary"
             >
-              Delete
+              {resources.BUTTON.BUTTON_PLACEHOLDER_DELETE}
             </button>
 
             <button type="primary" onClick={goToEdit}>
-              Edit{" "}
+              {resources.BUTTON.BUTTON_PLACEHOLDER_EDIT}
             </button>
           </div>
         </div>
