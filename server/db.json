@@ -35,7 +35,7 @@
     },
     {
       "title": "Legoland",
-      "type": "Infra Service",
+      "type": "Foundation",
       "start": "2022-03",
       "done": "2023-03",
       "customer": "Legoland AB",
@@ -65,6 +65,17 @@
       "city": "Stockholm",
       "status": "",
       "id": 6
+    },
+    {
+      "title": "",
+      "type": "Foundation",
+      "start": "",
+      "done": "",
+      "customer": "",
+      "country": "",
+      "city": "",
+      "status": "Not started",
+      "id": 7
     }
   ]
 }

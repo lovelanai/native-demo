@@ -18,7 +18,7 @@ const UpdateService = () => {
   };
 
   const handleSubmit = () => {
-    updateService(service, service.id);
+    updateService();
 
     let timerInterval = Swal.fire({
       icon: "success",

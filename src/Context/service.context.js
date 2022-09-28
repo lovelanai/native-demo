@@ -4,6 +4,18 @@ export const ServiceContext = createContext({});
 
 const storedServices = JSON.parse(localStorage.getItem("services"));
 
+export const makeReq = async (url, method, body) => {
+  let response = await fetch(url, {
+    method,
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return await response.json();
+};
+
 const ServiceProvider = (props) => {
   const [id, setId] = useState("");
   const [service, setService] = useState({
@@ -23,10 +35,8 @@ const ServiceProvider = (props) => {
   // Gets all services
   const getAllServices = async () => {
     try {
-      const response = await fetch("http://localhost:4000/service");
-      const result = await response.json();
-      localStorage.setItem("services", JSON.stringify(result));
-      setServices(result);
+      const response = await makeReq("http://localhost:4000/service", "GET");
+      setServices(response);
     } catch (err) {
       setServices(storedServices);
       console.log(err);
@@ -36,79 +46,58 @@ const ServiceProvider = (props) => {
   // Fetches service by id
   const getServiceById = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/service/${id}`);
-      const result = await response.json();
-      setService(result);
-      console.log(storedServices);
+      const response = await makeReq(
+        `http://localhost:4000/service/${id}`,
+        "GET"
+      );
+      setService(response);
     } catch (err) {
       console.log(err);
       setService(storedServices[id - 1]);
-      console.log(service);
     }
   };
 
   // Updates service
-  const updateService = async (service, id) => {
-    console.log(service);
-    console.log(id);
+  const updateService = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/service/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(service),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (response.ok) {
-        const result = await response.json();
-        console.log(result);
-      }
+      const response = await makeReq(
+        `http://localhost:4000/service/${service.id}`,
+        "PUT"
+      );
     } catch (err) {
       console.log(err);
     }
   };
 
   // Create new service
-  async function createService() {
+  const createService = async () => {
     try {
-      let result = await fetch("http://localhost:4000/service", {
-        method: "post",
-        body: JSON.stringify(service),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      if (result.ok) {
-        result = await result.json();
-        services.push(service);
-      }
+      const response = await makeReq(
+        "http://localhost:4000/service",
+        "POST",
+        service
+      );
+      services.push(response);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   // Deletes a service by id
 
-  async function deleteService(id, service) {
+  const deleteService = async () => {
     try {
-      let result = await fetch(`http://localhost:4000/service/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-
-      if (result.ok) {
-        result = await result.json();
-        services.push(service);
-        getAllServices();
-      }
+      const response = await makeReq(
+        `http://localhost:4000/service/${service.id}`,
+        "DELETE",
+        service
+      );
+      services.push(response);
+      getAllServices();
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   useEffect(() => {
     getAllServices();

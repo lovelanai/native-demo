@@ -12,7 +12,7 @@ const AddServices = () => {
   const { service, setService, createService } = useService();
 
   const handleSubmit = () => {
-    createService(service);
+    createService();
 
     let timerInterval = Swal.fire({
       icon: "success",
@@ -38,26 +38,26 @@ const AddServices = () => {
     let { name, value } = e.target;
 
     setService({ ...service, [name]: value });
-    console.log(service)
+    console.log(service);
   };
 
   const handleSwitch = (checked) => {
     if (checked) {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING
+        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING,
       });
     } else {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED
+        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED,
       });
     }
   };
 
   useEffect(() => {
-    handleSwitch()
-  console.log("hej")
+    handleSwitch();
+    console.log("hej");
   }, []);
 
   return (
@@ -84,7 +84,6 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "type" } })
             }
           >
-  
             <Select.Option value="Pavement">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_PAVEMENT}
             </Select.Option>
@@ -198,7 +197,7 @@ const AddServices = () => {
             <p style={{ margin: "0 0.5rem" }}>
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED}
             </p>
-            <Switch defaultChecked={false} onChange={handleSwitch}/>
+            <Switch defaultChecked={false} onChange={handleSwitch} />
             <p style={{ margin: "0 0.5rem" }}>
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING}
             </p>
