@@ -23,43 +23,83 @@
 
 
 .container
-    .card-container
-        display: flex
-        max-width: 62rem
-        flex-wrap: wrap
-        justify-content: center
-        align-items: center
+
  
-        .card
-            width: 24rem
-            display: flex
-            flex-direction: row
-            border-bottom: 1px solid lightgrey
-            margin: 2rem
+    .card
+        width: 30%
+        display: flex
+        flex-direction: column-reverse
+        border-bottom: 1px solid lightgrey
+        margin: 2rem
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+       
    
 
-        .left
-            width: 60%
-
-        .right 
-            width: 40%
+        .service-text
             display: flex
             flex-direction: column
+            justify-content: center
             align-items: center
+            font-size: 1.5rem
+           
+            
 
-        p
-            flex-direction: column   
+            p 
+                margin: 2px
+                font-size: 1.2rem
+                line-break: none
+
+
+        .button-group
+            display: flex
+            width: 100%
+            flex-direction: column
+            align-items: center
+            margin-bottom: 1rem
+
+            button
+                margin-top: 1rem
+                width: 50%
+                font-size: 1.2rem
+                
+                
+                &:first-child
+                    border: 1px solid green
+                    color: green
+                    &:hover
+                        background: lightgreen
+                        color: white
+
+                &:last-child
+                    border: 1px solid red
+                    color: red
+                    &:hover
+                        background: coral
+                        color: white
+                
+      
+
+            
+   
+
+    .service-img 
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-bottom: 1rem
+        & > .type-img
+            height: auto
+            width: 100%
+
+
+
+
+ 
 
         
-        button
-            margin-top: .5rem
-            width: 4.5rem
     
-        .type-img
-            height: 10rem
-            width: 10rem
-            border-radius: 50%
-            margin-bottom: 1rem
+      
+            
 
 h1
     font-weight: bold

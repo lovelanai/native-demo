@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
+import { DatePicker, Form, Switch, Select } from "antd";
 import moment from "moment";
 import "moment/locale/zh-cn";
 import React from "react";
@@ -75,7 +75,7 @@ const UpdateService = () => {
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
         >
-          <select
+          <Select
             className="select"
             type="select"
             name="type"
@@ -84,19 +84,19 @@ const UpdateService = () => {
               handleInputChange({ target: { value: select, name: "type" } })
             }
           >
-            <option value="Pavement">
+            <Select.Option value="Pavement">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_PAVEMENT}
-            </option>
-            <option value="Concrete">
+            </Select.Option>
+            <Select.Option value="Concrete">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_CONCRETE}
-            </option>
-            <option value="Foundation">
+            </Select.Option>
+            <Select.Option value="Foundation">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_FOUNDATIONING}
-            </option>
-            <option value="Infra Service">
+            </Select.Option>
+            <Select.Option value="Infra Service">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_INFRA_SERVICE}
-            </option>
-          </select>
+            </Select.Option>
+          </Select>
         </Form.Item>
         <div className="date-container">
           <Form.Item
@@ -147,7 +147,7 @@ const UpdateService = () => {
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
         >
-          <select
+          <Select
             className="select"
             type="select"
             name="country"
@@ -156,22 +156,22 @@ const UpdateService = () => {
               handleInputChange({ target: { value: select, name: "country" } })
             }
           >
-            <option value="Sweden">
+            <Select.Option value="Sweden">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_SWEDEN}
-            </option>
-            <option value="Denmark">
+            </Select.Option>
+            <Select.Option value="Denmark">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_DENMARK}
-            </option>
-            <option value="Norway">
+            </Select.Option>
+            <Select.Option value="Norway">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_NORWAY}
-            </option>
-          </select>
+            </Select.Option>
+          </Select>
         </Form.Item>
 
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
         >
-          <select
+          <Select
             className="select"
             type="select"
             name="city"
@@ -180,16 +180,16 @@ const UpdateService = () => {
               handleInputChange({ target: { value: select, name: "city" } })
             }
           >
-            <option value="Stockholm">
+            <Select.Option value="Stockholm">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_STOCKHOLM}
-            </option>
-            <option value="Copenhagen">
+            </Select.Option>
+            <Select.Option value="Copenhagen">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_COPENHAGEN}
-            </option>
-            <option value="Oslo">
+            </Select.Option>
+            <Select.Option value="Oslo">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_OSLO}
-            </option>
-          </select>
+            </Select.Option>
+          </Select>
         </Form.Item>
 
         <div

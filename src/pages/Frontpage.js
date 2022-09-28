@@ -1,19 +1,18 @@
 import { Space } from "antd";
 
 import { useNavigate } from "react-router-dom";
-import concreteImg from "../Assets/concrete.jpg";
+import concreteImg from "../Assets/concrete.png";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
-import {useTranslation} from "react-i18next"
 import { resources } from "../resource";
 
 import "../Style/Frontpage.sass";
 
 const Frontpage = () => {
 
-  const {t, i18n} = useTranslation('common')
+
   const { getServiceById, id, setId, services } = useService();
 
   const navigate = useNavigate();
@@ -60,57 +59,65 @@ const Frontpage = () => {
       </Space>
       <br />
       <br />
-      <div className="card-container">
+       <div className="card-container"> 
         {services.map((service) => (
           <div key={service.id} className="card">
-            <div className="left">
+            <div className="service-text">
               <h3>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_TITLE} {service.title}
+                <b>{service.title}</b> 
               </h3>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_ID} {service.id}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_ID}</b>  {service.id}
               </p>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_SERVICE} {service.type}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_SERVICE}</b>  {service.type}
               </p>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_START} {service.start}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_START}</b>  {service.start}
               </p>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_DONE} {service.done}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_DONE}</b>  {service.done}
               </p>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_TITLE}{" "}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_TITLE}</b> {" "}
                 {service.customer}
               </p>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_COUNTRY}{" "}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_COUNTRY}</b> {" "}
                 {service.country}
               </p>
-              <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_CITY} {service.city}
+              <p><b>
+                {resources.SERVICES.SERVICE_PLACEHOLDER_CITY}</b>  {service.city}
               </p>
               <p>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_STATUS} {service.status}
+                <b>{resources.SERVICES.SERVICE_PLACEHOLDER_STATUS} </b> {service.status}
               </p>
             </div>
-            <div className="right">
+            <div className="service-img">
               {service.type === "Pavement" ? (
+                <div>
                 <img className="type-img" src={pavementImg} alt="Pavement" />
+                </div>
               ) : service.type === "Concrete" ? (
+                <div>
                 <img className="type-img" src={concreteImg} alt="Concrete" />
+                </div>
               ) : service.type === "Infra Service" ? (
+                <div>
                 <img
                   className="type-img"
                   src={infraServiceImg}
                   alt="Infra Service"
                 />
+                </div>
               ) : service.type === "Foundation" ? (
+                <div>
                 <img
                   className="type-img"
                   src={foundationImg}
                   alt="Foundation"
                 />
+                </div>
               ) : (
                 <></>
               )}
@@ -118,7 +125,7 @@ const Frontpage = () => {
           </div>
         ))}
       </div>
-    </div>
+      </div>
   );
 };
 

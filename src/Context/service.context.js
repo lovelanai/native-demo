@@ -68,7 +68,7 @@ const ServiceProvider = (props) => {
     }
   };
 
-  // Gets all services
+  // Create new service
   async function createService() {
     try {
       let result = await fetch("http://localhost:4000/service", {

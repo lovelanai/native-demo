@@ -1,6 +1,6 @@
 import { Space } from "antd";
 import { useNavigate } from "react-router-dom";
-import concreteImg from "../Assets/concrete.jpg";
+import concreteImg from "../Assets/concrete.png";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
@@ -115,39 +115,58 @@ const Service = () => {
       <br />
       <br />
 
-      <div className="card-container">
+      {/* <div className="card-container"> */}
         <div className="card">
-          <div className="left">
-            <h3>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_TITLE} {service.title}
-            </h3>
+          <div className="service-text">
+            <h2>
+              <b>{service.title}</b>
+            </h2>
+      
             <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_ID} {service.id}
+              <b>{resources.SERVICES.SERVICE_PLACEHOLDER_ID}</b> {service.id}
             </p>
-            <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_SERVICE} {service.type}
+            <p><b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_SERVICE}</b> {service.type}
             </p>
-            <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_START} {service.start}
+            <p> <b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_START}</b> {service.start}
             </p>
-            <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_DONE} {service.done}
+            <p><b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_DONE} </b>{service.done}
             </p>
+           
             <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_CUSTOMER}{" "}
+              <b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_CUSTOMER}</b>{" "}
               {service.customer}
             </p>
-            <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_COUNTRY} {service.country}
+            <p><b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_COUNTRY}</b> {service.country}
             </p>
             <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_CITY} {service.city}
+              <b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_CITY}</b> {service.city}
             </p>
-            <p>
-              {resources.SERVICES.SERVICE_PLACEHOLDER_STATUS} {service.status}
+            <p><b>
+              {resources.SERVICES.SERVICE_PLACEHOLDER_STATUS}</b> {service.status}
             </p>
+        
+
+       <div className="button-group">
+            <button type="primary" onClick={goToEdit}>
+              {resources.BUTTON.BUTTON_PLACEHOLDER_EDIT}
+            </button>
+                        <button
+              onClick={handleDelete}
+              style={{ cursor: "pointer" }}
+              type="primary"
+            >
+              {resources.BUTTON.BUTTON_PLACEHOLDER_DELETE}
+            </button>
+
+        </div>
           </div>
-          <div className="right">
+          <div className="service-img">
             {service.type === "Pavement" ? (
               <img className="type-img" src={pavementImg} alt="Pavement" />
             ) : service.type === "Concrete" ? (
@@ -163,21 +182,11 @@ const Service = () => {
             ) : (
               <></>
             )}
-            <button
-              onClick={handleDelete}
-              style={{ cursor: "pointer" }}
-              type="primary"
-            >
-              {resources.BUTTON.BUTTON_PLACEHOLDER_DELETE}
-            </button>
 
-            <button type="primary" onClick={goToEdit}>
-              {resources.BUTTON.BUTTON_PLACEHOLDER_EDIT}
-            </button>
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

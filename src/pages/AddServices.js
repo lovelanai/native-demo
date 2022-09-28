@@ -1,4 +1,4 @@
-import { Button, DatePicker, Form, Switch } from "antd";
+import { DatePicker, Form, Switch, Select } from "antd";
 import { useService } from "../Context/service.context";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -36,6 +36,7 @@ const AddServices = () => {
   const handleInputChange = (e) => {
     let { name, value } = e.target;
     setService({ ...service, [name]: value });
+    console.log(service)
   };
 
   const handleSwitch = (checked) => {
@@ -68,7 +69,7 @@ const AddServices = () => {
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
         >
-          <select
+          <Select
             className="select"
             type="select"
             name="type"
@@ -76,20 +77,20 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "type" } })
             }
           >
-            <option value=""></option>
-            <option value="Pavement">
+  
+            <Select.Option value="Pavement">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_PAVEMENT}
-            </option>
-            <option value="Concrete">
+            </Select.Option>
+            <Select.Option value="Concrete">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_CONCRETE}
-            </option>
-            <option value="Foundation">
+            </Select.Option>
+            <Select.Option value="Foundation">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_FOUNDATIONING}
-            </option>
-            <option value="Infra Service">
+            </Select.Option>
+            <Select.Option value="Infra Service">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_INFRA_SERVICE}
-            </option>
-          </select>
+            </Select.Option>
+          </Select>
         </Form.Item>
         <div className="date-container">
           <Form.Item
@@ -137,7 +138,7 @@ const AddServices = () => {
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
         >
-          <select
+          <Select
             className="select"
             type="select"
             name="country"
@@ -145,23 +146,22 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "country" } })
             }
           >
-            <option value=""></option>
-            <option value="Sweden">
+            <Select.Option value="Sweden">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_SWEDEN}
-            </option>
-            <option value="Denmark">
+            </Select.Option>
+            <Select.Option value="Denmark">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_DENMARK}
-            </option>
-            <option value="Norway">
+            </Select.Option>
+            <Select.Option value="Norway">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_NORWAY}
-            </option>
-          </select>
+            </Select.Option>
+          </Select>
         </Form.Item>
 
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
         >
-          <select
+          <Select
             type="select"
             name="city"
             className="select"
@@ -169,17 +169,17 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "city" } })
             }
           >
-            <option value=""></option>
-            <option value="Stockholm">
+            <Select.Option value=""></Select.Option>
+            <Select.Option value="Stockholm">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_STOCKHOLM}
-            </option>
-            <option value="Copenhagen">
+            </Select.Option>
+            <Select.Option value="Copenhagen">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_COPENHAGEN}
-            </option>
-            <option value="Oslo">
+            </Select.Option>
+            <Select.Option value="Oslo">
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_OSLO}
-            </option>
-          </select>
+            </Select.Option>
+          </Select>
         </Form.Item>
 
         <Form.Item
