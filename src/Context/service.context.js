@@ -31,7 +31,12 @@ const ServiceProvider = (props) => {
   });
 
   const [services, setServices] = useState([service]);
+  const [errorMessage, setErrorMessage] = useState(false)
+  const [formDisabled, setFormDisabled] = useState(false)
 
+ 
+
+  console.log('error?', errorMessage)
   // Gets all services
   const getAllServices = async () => {
     try {
@@ -39,6 +44,8 @@ const ServiceProvider = (props) => {
       setServices(response);
     } catch (err) {
       setServices(storedServices);
+      setErrorMessage(true)
+      setFormDisabled(true)
       console.log(err);
     }
   };
@@ -54,6 +61,7 @@ const ServiceProvider = (props) => {
     } catch (err) {
       console.log(err);
       setService(storedServices[id - 1]);
+      setErrorMessage(true)
     }
   };
 
@@ -66,6 +74,7 @@ const ServiceProvider = (props) => {
       );
     } catch (err) {
       console.log(err);
+      setErrorMessage(true)
     }
   };
 
@@ -80,6 +89,7 @@ const ServiceProvider = (props) => {
       services.push(response);
     } catch (err) {
       console.log(err);
+      setErrorMessage(true)
     }
   };
 
@@ -96,6 +106,7 @@ const ServiceProvider = (props) => {
       getAllServices();
     } catch (err) {
       console.log(err);
+      setErrorMessage(true)
     }
   };
 
@@ -116,6 +127,9 @@ const ServiceProvider = (props) => {
         services,
         createService,
         deleteService,
+        errorMessage,
+        setFormDisabled,
+        formDisabled,
       }}
     >
       {props.children}

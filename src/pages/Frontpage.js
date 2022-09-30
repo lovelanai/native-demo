@@ -7,13 +7,13 @@ import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
 import { resources } from "../resource";
-
 import "../Style/Frontpage.sass";
 
 const Frontpage = () => {
 
 
-  const { getServiceById, id, setId, services } = useService();
+  const { getServiceById, id, setId, services} = useService();
+
 
   const navigate = useNavigate();
 
@@ -95,29 +95,29 @@ const Frontpage = () => {
             </div>
             <div className="service-img">
               {service.type === "Pavement" ? (
-                <div>
+              
                 <img className="type-img" src={pavementImg} alt="Pavement" />
-                </div>
+                
               ) : service.type === "Concrete" ? (
-                <div>
+               
                 <img className="type-img" src={concreteImg} alt="Concrete" />
-                </div>
+               
               ) : service.type === "Infra Service" ? (
-                <div>
+                
                 <img
                   className="type-img"
                   src={infraServiceImg}
                   alt="Infra Service"
                 />
-                </div>
+                
               ) : service.type === "Foundation" ? (
-                <div>
+                
                 <img
                   className="type-img"
                   src={foundationImg}
                   alt="Foundation"
                 />
-                </div>
+               
               ) : (
                 <></>
               )}

@@ -1,4 +1,4 @@
-import { DatePicker, Form, Switch, Select } from "antd";
+import { DatePicker, Form, Switch, Select, Input, Button } from "antd";
 import moment from "moment";
 import "moment/locale/zh-cn";
 import React from "react";
@@ -10,7 +10,7 @@ import "../Style/Form.sass";
 
 const UpdateService = () => {
   const navigate = useNavigate();
-  const { service, setService, updateService } = useService();
+  const { service, setService, updateService, formDisabled } = useService();
 
   const handleInputChange = (e) => {
     let { name, value } = e.target;
@@ -65,7 +65,8 @@ const UpdateService = () => {
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TITLE}
         >
-          <input
+          <Input
+          disabled={formDisabled}
             className="input"
             name="title"
             defaultValue={service.title}
@@ -76,6 +77,7 @@ const UpdateService = () => {
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
         >
           <Select
+          disabled={formDisabled}
             className="select"
             type="select"
             name="type"
@@ -103,6 +105,7 @@ const UpdateService = () => {
             label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_START}
           >
             <DatePicker
+            disabled={formDisabled}
               className="input"
               name="start"
               type="dateString"
@@ -119,6 +122,7 @@ const UpdateService = () => {
             label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_END}
           >
             <DatePicker
+            disabled={formDisabled}
               className="input"
               name="done"
               type="dateString"
@@ -136,7 +140,8 @@ const UpdateService = () => {
             resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CUSTOMER
           }
         >
-          <input
+          <Input
+          disabled={formDisabled}
             className="input"
             defaultValue={service.customer}
             onChange={handleInputChange}
@@ -148,6 +153,7 @@ const UpdateService = () => {
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
         >
           <Select
+          disabled={formDisabled}
             className="select"
             type="select"
             name="country"
@@ -172,6 +178,7 @@ const UpdateService = () => {
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
         >
           <Select
+          disabled={formDisabled}
             className="select"
             type="select"
             name="city"
@@ -203,6 +210,7 @@ const UpdateService = () => {
             </p>
 
             <Switch
+            disabled={formDisabled}
               onChange={handleSwitch}
               defaultChecked={service.status === "Ongoing" ? true : false}
             />
@@ -213,14 +221,15 @@ const UpdateService = () => {
           </div>
         </div>
         <div className="edit-form-button-div">
-          <button
+          <Button
+          disabled={formDisabled}
             className="edit-form-buttons"
             onClick={() => {
               handleSubmit();
             }}
           >
             {resources.BUTTON.BUTTON_PLACEHOLDER_SUBMIT}
-          </button>
+          </Button>
           <button
             className="edit-form-buttons cancel-button"
             onClick={() => {

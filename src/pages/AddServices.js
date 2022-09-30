@@ -1,15 +1,17 @@
-import { DatePicker, Form, Switch, Select } from "antd";
+import { DatePicker, Form, Switch, Select, Input, Button } from "antd";
 import { useService } from "../Context/service.context";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { resources } from "../resource";
 import "../Style/Form.sass";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const AddServices = () => {
   const navigate = useNavigate();
 
-  const { service, setService, createService } = useService();
+  const { service, setService, createService, formDisabled} = useService();
+
+  console.log(formDisabled)
 
   const handleSubmit = () => {
     createService();
@@ -38,7 +40,7 @@ const AddServices = () => {
     let { name, value } = e.target;
 
     setService({ ...service, [name]: value });
-    console.log(service);
+    console.log(service); 
   };
 
   const handleSwitch = (checked) => {
@@ -54,10 +56,14 @@ const AddServices = () => {
       });
     }
   };
+  
+  
 
   useEffect(() => {
+    
+      
+    
     handleSwitch();
-    console.log("hej");
   }, []);
 
   return (
@@ -67,16 +73,18 @@ const AddServices = () => {
         className="form-content"
         layout="vertical"
         onSubmit={(e) => e.preventDefault()}
+        
       >
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TITLE}
         >
-          <input className="input" name="title" onChange={handleInputChange} />
+          <Input disabled={formDisabled} className="input" name="title" onChange={handleInputChange} />
         </Form.Item>
         <Form.Item
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
         >
           <Select
+            disabled={formDisabled}
             className="select"
             type="select"
             name="type"
@@ -100,9 +108,11 @@ const AddServices = () => {
         </Form.Item>
         <div className="date-container">
           <Form.Item
+          
             label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_START}
           >
             <DatePicker
+            disabled={formDisabled}
               name="start"
               className="input"
               type="dateString"
@@ -118,6 +128,7 @@ const AddServices = () => {
             label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_END}
           >
             <DatePicker
+            disabled={formDisabled}
               name="done"
               className="input"
               type="dateString"
@@ -134,7 +145,8 @@ const AddServices = () => {
             resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CUSTOMER
           }
         >
-          <input
+          <Input
+          disabled={formDisabled}
             className="input"
             onChange={handleInputChange}
             name="customer"
@@ -145,6 +157,7 @@ const AddServices = () => {
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
         >
           <Select
+          disabled={formDisabled}
             className="select"
             type="select"
             name="country"
@@ -168,6 +181,7 @@ const AddServices = () => {
           label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
         >
           <Select
+          disabled={formDisabled}
             type="select"
             name="city"
             className="select"
@@ -197,16 +211,16 @@ const AddServices = () => {
             <p style={{ margin: "0 0.5rem" }}>
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED}
             </p>
-            <Switch defaultChecked={false} onChange={handleSwitch} />
+            <Switch disabled={formDisabled} defaultChecked={false} onChange={handleSwitch} />
             <p style={{ margin: "0 0.5rem" }}>
               {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING}
             </p>
           </div>
         </Form.Item>
         <div className="add-form-button-div">
-          <button onClick={handleSubmit}>
+          <Button disabled={formDisabled} onClick={handleSubmit}>
             {resources.BUTTON.BUTTON_PLACEHOLDER_SUBMIT}
-          </button>
+          </Button>
         </div>
       </Form>
     </div>
