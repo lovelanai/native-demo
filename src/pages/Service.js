@@ -116,7 +116,7 @@ const Service = () => {
       <br />
       <br />
 
-      <div className="card-container">
+      <div className="service-card-container">
         <div className="service-card">
           <div className="service-text">
             <h2>
