@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 body {
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   transition: all 0.2s ease-in-out;
+}
+
+b {
+  color: #153275;
 }
 
 .container {
@@ -51,41 +57,46 @@ button:hover {
   height: auto;
 }
 
-.container .card-container {
+.card-container {
   display: flex;
-  max-width: 62rem;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
-  align-items: center;
 }
-.container .card-container .card {
-  width: 24rem;
+.card-container .card {
+  width: 30%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   border-bottom: 1px solid lightgrey;
   margin: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.container .card-container .left {
-  width: 60%;
+.card-container .card .service-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
-.container .card-container .right {
-  width: 40%;
+.card-container .card .service-text p {
+  margin: 2px;
+  font-size: 1.2rem;
+  line-break: none;
+}
+.card-container .service-img {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.container .card-container p {
-  flex-direction: column;
-}
-.container .card-container button {
-  margin-top: 0.5rem;
-  width: 4.5rem;
-}
-.container .card-container .type-img {
-  height: 10rem;
-  width: 10rem;
-  border-radius: 50%;
   margin-bottom: 1rem;
+}
+.card-container .service-img > div {
+  width: 100%;
+  height: 100%;
+}
+.card-container .service-img > div > .type-img {
+  height: 100%;
+  width: 100%;
 }
 
 h1 {

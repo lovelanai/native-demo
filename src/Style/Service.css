@@ -16,41 +16,63 @@
   background: #ff4545;
 }
 
-.container .card-container {
+.container .card {
+  width: 30%;
   display: flex;
-  max-width: 62rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-.container .card-container .card {
-  width: 24rem;
-  display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   border-bottom: 1px solid lightgrey;
   margin: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.container .card-container .left {
-  width: 60%;
+.container .card .service-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
 }
-.container .card-container .right {
-  width: 40%;
+.container .card .service-text p {
+  margin: 2px;
+  font-size: 1.2rem;
+  line-break: none;
+}
+.container .card .button-group {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.container .card .button-group button {
+  margin-top: 1rem;
+  width: 50%;
+  font-size: 1.2rem;
+}
+.container .card .button-group button:first-child {
+  border: 1px solid green;
+  color: green;
+}
+.container .card .button-group button:first-child:hover {
+  background: lightgreen;
+  color: white;
+}
+.container .card .button-group button:last-child {
+  border: 1px solid red;
+  color: red;
+}
+.container .card .button-group button:last-child:hover {
+  background: coral;
+  color: white;
+}
+.container .service-img {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.container .card-container p {
-  flex-direction: column;
-}
-.container .card-container button {
-  margin-top: 0.5rem;
-  width: 4.5rem;
-}
-.container .card-container .type-img {
-  height: 10rem;
-  width: 10rem;
-  border-radius: 50%;
   margin-bottom: 1rem;
+}
+.container .service-img > .type-img {
+  height: auto;
+  width: 100%;
 }
 
 h1 {
