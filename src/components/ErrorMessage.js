@@ -1,6 +1,6 @@
 import {Alert, Space, Button} from 'antd'
 import { useService } from "../Context/service.context";
-import { resources } from "../resource";
+//import { resources } from "../resource";
 
 
 export default function ErrorMessage () {

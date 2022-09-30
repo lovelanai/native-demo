@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { resources } from "../resource";
 import "../Style/Form.sass";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 
 const AddServices = () => {
   const navigate = useNavigate();
@@ -60,9 +60,6 @@ const AddServices = () => {
   
 
   useEffect(() => {
-    
-      
-    
     handleSwitch();
   }, []);
 

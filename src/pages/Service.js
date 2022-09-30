@@ -114,9 +114,10 @@ const Service = () => {
       </Space>
       <br />
       <br />
+      <br />
 
-      {/* <div className="card-container"> */}
-        <div className="card">
+      <div className="card-container">
+        <div className="service-card">
           <div className="service-text">
             <h2>
               <b>{service.title}</b>
@@ -186,7 +187,7 @@ const Service = () => {
           </div>
         </div>
       </div>
-    // </div>
+    </div>
   );
 };
 
