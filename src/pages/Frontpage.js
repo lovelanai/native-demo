@@ -8,11 +8,12 @@ import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
 import { resources } from "../resource";
 import "../Style/Frontpage.sass";
+import {FaEllipsisH} from "react-icons/fa"
 
 const Frontpage = () => {
 
 
-  const { getServiceById, id, setId, services} = useService();
+  const { getServiceById, id, setId, services, service} = useService();
 
 
   const navigate = useNavigate();
@@ -31,6 +32,13 @@ const Frontpage = () => {
     setId(e.target.value);
     console.log(id);
   };
+
+
+  /* const goToEdit = (e) => {
+    setId(e.target.value);
+    console.log(service.id)
+    navigate("/edit") 
+  };*/
 
   return (
     <div className="container">
@@ -51,7 +59,7 @@ const Frontpage = () => {
       </div>
       <br />
       <Space size="middle" style={{ margin: 10 }}>
-        <button>{resources.BUTTON.BUTTON_PLACEHOLDER_SHOW}</button>
+        <button>{resources.BUTTON.BUTTON_PLACEHOLDER_REFRESH}</button>
 
         <button onClick={addNewService}>
           {resources.BUTTON.BUTTON_PLACEHOLDER_ADD}
@@ -79,7 +87,7 @@ const Frontpage = () => {
                 {resources.SERVICES.SERVICE_PLACEHOLDER_DONE}</b>  {service.done}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_TITLE}</b> {" "}
+                {resources.SERVICES.SERVICE_PLACEHOLDER_CUSTOMER}</b> {" "}
                 {service.customer}
               </p>
               <p><b>
@@ -93,9 +101,12 @@ const Frontpage = () => {
                 <b>{resources.SERVICES.SERVICE_PLACEHOLDER_STATUS} </b> {service.status}
               </p>
             </div>
+            
             <div className="service-img">
+            <FaEllipsisH className="edit-icon"/>
               {service.type === "Pavement" ? (
-              
+                
+                
                 <img className="type-img" src={pavementImg} alt="Pavement" />
                 
               ) : service.type === "Concrete" ? (

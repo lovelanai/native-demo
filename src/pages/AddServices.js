@@ -1,10 +1,12 @@
-import { DatePicker, Form, Switch, Select, Input, Button } from "antd";
+import { DatePicker, Form, Switch, Input, Button, Select } from "antd";
 import { useService } from "../Context/service.context";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { resources } from "../resource";
 import "../Style/Form.sass";
 import { useEffect} from "react";
+
+
 
 const AddServices = () => {
   const navigate = useNavigate();
@@ -215,7 +217,7 @@ const AddServices = () => {
           </div>
         </Form.Item>
         <div className="add-form-button-div">
-          <Button disabled={formDisabled} onClick={handleSubmit}>
+          <Button style={{ color: "#153275", borderRadius: "1rem", border: "2px solid #153275", fontWeight: "bold", padding: ".5rem", display: "flex", justifyContent: "center", alignItems: "center"}} disabled={formDisabled} onClick={handleSubmit}>
             {resources.BUTTON.BUTTON_PLACEHOLDER_SUBMIT}
           </Button>
         </div>

@@ -114,7 +114,6 @@ const Service = () => {
       </Space>
       <br />
       <br />
-      <br />
 
       <div className="service-card-container">
         <div className="service-card">

@@ -222,6 +222,7 @@ const UpdateService = () => {
         </div>
         <div className="edit-form-button-div">
           <Button
+          style={{ color: "#153275", borderRadius: "1rem", border: "2px solid #153275", fontWeight: "bold", padding: ".5rem", display: "flex", justifyContent: "center", alignItems: "center"}}
           disabled={formDisabled}
             className="edit-form-buttons"
             onClick={() => {

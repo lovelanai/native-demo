@@ -1,19 +1,8 @@
 {
   "service": [
     {
-      "title": "Gekås ullared rökruta i trä",
-      "type": "Concrete",
-      "start": "2022-01",
-      "done": "2022-06",
-      "customer": "Rosanna AB",
-      "country": "Sweden",
-      "city": "Copenhagen",
-      "status": "Ongoing",
-      "id": 1
-    },
-    {
-      "title": "Kungälv rökStation",
-      "type": "Foundation",
+      "title": "Kungälvs rökStationer",
+      "type": "Infra Service",
       "start": "2022-01",
       "done": "2022-06",
       "customer": "Gregers wcservice AB",
@@ -63,8 +52,30 @@
       "customer": "Stockholm Stad",
       "country": "Sweden",
       "city": "Stockholm",
-      "status": "",
+      "status": "Ongoing",
       "id": 6
+    },
+    {
+      "title": "Skansen Kronan",
+      "type": "Infra Service",
+      "start": "2022-09-28",
+      "done": "2022-09-28",
+      "customer": "Direktör Love",
+      "country": "Sweden",
+      "city": "Oslo",
+      "status": "Not started",
+      "id": 7
+    },
+    {
+      "title": "HiQ gaminghörna",
+      "type": "Pavement",
+      "start": "2022-09-30",
+      "done": "2022-10-13",
+      "customer": "Dick",
+      "country": "Denmark",
+      "city": "Copenhagen",
+      "status": "Ongoing",
+      "id": 8
     }
   ]
 }
