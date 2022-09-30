@@ -65,39 +65,6 @@
       "city": "Stockholm",
       "status": "",
       "id": 6
-    },
-    {
-      "title": "",
-      "type": "Foundation",
-      "start": "",
-      "done": "",
-      "customer": "",
-      "country": "",
-      "city": "",
-      "status": "Not started",
-      "id": 7
-    },
-    {
-      "title": "test",
-      "type": "",
-      "start": "",
-      "done": "",
-      "customer": "",
-      "country": "",
-      "city": "",
-      "status": "Not started",
-      "id": 8
-    },
-    {
-      "title": "Test",
-      "type": "Pavement",
-      "start": "2022-09-01",
-      "done": "2022-09-28",
-      "customer": "Test",
-      "country": "Sweden",
-      "city": "Stockholm",
-      "status": "Ongoing",
-      "id": 9
     }
   ]
 }

@@ -70,12 +70,17 @@ const ServiceProvider = (props) => {
     try {
       const response = await makeReq(
         `http://localhost:4000/service/${service.id}`,
-        "PUT"
+        "PUT",
+        service
+        
       );
+      services.push(response)
+      getAllServices()
     } catch (err) {
       console.log(err);
       setErrorMessage(true)
     }
+  
   };
 
   // Create new service
