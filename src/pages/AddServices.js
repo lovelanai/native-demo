@@ -1,21 +1,19 @@
-import { DatePicker, Form, Switch, Input, Button, Select } from "antd";
-import { useService } from "../Context/service.context";
+import { Button, DatePicker, Form, Input, Select, Switch } from "antd";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useService } from "../Context/service.context";
 
-import "../Style/Form.sass";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-
-
+import "../Style/Form.sass";
 
 const AddServices = () => {
-  const { t, i18n } = useTranslation("translation");
+  const { t } = useTranslation("translation");
   const navigate = useNavigate();
 
-  const { service, setService, createService, formDisabled} = useService();
+  const { service, setService, createService, formDisabled } = useService();
 
-  console.log(formDisabled)
+  console.log(formDisabled);
 
   const handleSubmit = () => {
     createService();
@@ -44,7 +42,7 @@ const AddServices = () => {
     let { name, value } = e.target;
 
     setService({ ...service, [name]: value });
-    console.log(service); 
+    console.log(service);
   };
 
   const handleSwitch = (checked) => {
@@ -60,8 +58,6 @@ const AddServices = () => {
       });
     }
   };
-  
-  
 
   useEffect(() => {
     handleSwitch();
@@ -74,16 +70,16 @@ const AddServices = () => {
         className="form-content"
         layout="vertical"
         onSubmit={(e) => e.preventDefault()}
-        
       >
-        <Form.Item
-          label={t("FORMDATA.TITLE")}
-        >
-          <Input disabled={formDisabled} className="input" name="title" onChange={handleInputChange} />
+        <Form.Item label={t("FORMDATA.TITLE")}>
+          <Input
+            disabled={formDisabled}
+            className="input"
+            name="title"
+            onChange={handleInputChange}
+          />
         </Form.Item>
-        <Form.Item
-          label={t("FORMDATA.TYPE")}
-        >
+        <Form.Item label={t("FORMDATA.TYPE")}>
           <Select
             disabled={formDisabled}
             className="select"
@@ -108,15 +104,12 @@ const AddServices = () => {
           </Select>
         </Form.Item>
         <div className="date-container">
-          <Form.Item
-          
-            label={t("FORMDATA.START")}
-          >
+          <Form.Item label={t("FORMDATA.START")}>
             <DatePicker
-            disabled={formDisabled}
+              disabled={formDisabled}
               name="start"
               className="input"
-              placeholder= {t("FORMDATA.SELECT-DATE")}
+              placeholder={t("FORMDATA.SELECT-DATE")}
               type="dateString"
               onChange={(date, dateString) =>
                 handleInputChange({
@@ -126,13 +119,11 @@ const AddServices = () => {
             />
           </Form.Item>
 
-          <Form.Item
-            label={t("FORMDATA.END")}
-          >
+          <Form.Item label={t("FORMDATA.END")}>
             <DatePicker
-            disabled={formDisabled}
+              disabled={formDisabled}
               name="done"
-              placeholder= {t("FORMDATA.SELECT-DATE")}
+              placeholder={t("FORMDATA.SELECT-DATE")}
               className="input"
               type="dateString"
               onChange={(date, dateString) =>
@@ -143,24 +134,18 @@ const AddServices = () => {
             />
           </Form.Item>
         </div>
-        <Form.Item
-          label={
-            t("FORMDATA.CUSTOMER")
-          }
-        >
+        <Form.Item label={t("FORMDATA.CUSTOMER")}>
           <Input
-          disabled={formDisabled}
+            disabled={formDisabled}
             className="input"
             onChange={handleInputChange}
             name="customer"
           />
         </Form.Item>
 
-        <Form.Item
-          label={t("FORMDATA.COUNTRY")}
-        >
+        <Form.Item label={t("FORMDATA.COUNTRY")}>
           <Select
-          disabled={formDisabled}
+            disabled={formDisabled}
             className="select"
             type="select"
             name="country"
@@ -170,7 +155,6 @@ const AddServices = () => {
           >
             <Select.Option value="FORMDATA.COUNTRIES_SWEDEN">
               {t("FORMDATA.COUNTRIES_SWEDEN")}
-              
             </Select.Option>
             <Select.Option value="FORMDATA.COUNTRIES_DENMARK">
               {t("FORMDATA.COUNTRIES_DENMARK")}
@@ -181,11 +165,9 @@ const AddServices = () => {
           </Select>
         </Form.Item>
 
-        <Form.Item
-          label={t("FORMDATA.CITY")}
-        >
+        <Form.Item label={t("FORMDATA.CITY")}>
           <Select
-          disabled={formDisabled}
+            disabled={formDisabled}
             type="select"
             name="city"
             className="select"
@@ -193,9 +175,8 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "city" } })
             }
           >
-           
             <Select.Option value="FORMDATA.CITIES_STOCKHOLM">
-         {t("FORMDATA.CITIES_STOCKHOLM")}
+              {t("FORMDATA.CITIES_STOCKHOLM")}
             </Select.Option>
             <Select.Option value="FORMDATA.CITIES_COPENHAGEN">
               {t("FORMDATA.CITIES_COPENHAGEN")}
@@ -215,14 +196,29 @@ const AddServices = () => {
             <p style={{ margin: "0 0.5rem" }}>
               {t("FORMDATA.STATUS_NOTSTARTED")}
             </p>
-            <Switch disabled={formDisabled} defaultChecked={false} onChange={handleSwitch} />
-            <p style={{ margin: "0 0.5rem" }}>
-              {t("FORMDATA.STATUS_ONGOING")}
-            </p>
+            <Switch
+              disabled={formDisabled}
+              defaultChecked={false}
+              onChange={handleSwitch}
+            />
+            <p style={{ margin: "0 0.5rem" }}>{t("FORMDATA.STATUS_ONGOING")}</p>
           </div>
         </Form.Item>
         <div className="add-form-button-div">
-          <Button style={{ color: "#153275", borderRadius: "1rem", border: "2px solid #153275", fontWeight: "bold", padding: ".5rem", display: "flex", justifyContent: "center", alignItems: "center"}} disabled={formDisabled} onClick={handleSubmit}>
+          <Button
+            style={{
+              color: "#153275",
+              borderRadius: "1rem",
+              border: "2px solid #153275",
+              fontWeight: "bold",
+              padding: ".5rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            disabled={formDisabled}
+            onClick={handleSubmit}
+          >
             {t("BUTTON.SUBMIT")}
           </Button>
         </div>
