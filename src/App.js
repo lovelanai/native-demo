@@ -4,8 +4,8 @@ import ErrorMessage from "./components/ErrorMessage";
 import Header from "./components/Header";
 import AddServices from "./pages/AddServices";
 import Frontpage from "./pages/Frontpage";
-import Service from "./pages/Service";
-/* import TestCard from "./pages/TestCard"; */
+ import Service from "./pages/Service";
+
 import UpdateService from "./pages/UpdateService";
 
 
@@ -19,8 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Frontpage />} />
         <Route path="/add" element={<AddServices />} />
-        <Route path="/edit" element={<UpdateService />} />
-        <Route path="/service/:id" element={<Service />} />
+        <Route path="/edit/:id" element={<UpdateService />} />
+         <Route path="/service/:id" element={<Service />} />
     
       </Routes>
     </div>

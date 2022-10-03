@@ -2,13 +2,15 @@ import { DatePicker, Form, Switch, Input, Button, Select } from "antd";
 import { useService } from "../Context/service.context";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { resources } from "../resource";
+
 import "../Style/Form.sass";
 import { useEffect} from "react";
+import { useTranslation } from "react-i18next";
 
 
 
 const AddServices = () => {
+  const { t, i18n } = useTranslation("translation");
   const navigate = useNavigate();
 
   const { service, setService, createService, formDisabled} = useService();
@@ -20,8 +22,8 @@ const AddServices = () => {
 
     let timerInterval = Swal.fire({
       icon: "success",
-      title: `${resources.SWALDATA.SWALDATA_DELETE_SUCESS}`,
-      html: `${resources.SWALDATA.SWALDATA_DELETE_SUCESS_SPAN}`,
+      title: `${t("SWALDATA.DELETE_SUCESS")}`,
+      html: `${t("SWALDATA.DELETE_SUCESS_SPAN")}`,
       timer: 2000,
       timerProgressBar: true,
       didOpen: () => {
@@ -49,12 +51,12 @@ const AddServices = () => {
     if (checked) {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING,
+        status: `${t("FORMDATA.STATUS_ONGOING")}`,
       });
     } else {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED,
+        status: `${t("FORMDATA.PLACEHOLDER_STATUS_NOTSTARTED")}`,
       });
     }
   };
@@ -67,7 +69,7 @@ const AddServices = () => {
 
   return (
     <div className="form">
-      <h1>{resources.TITLES.TITLES_PLACEHOLDER_ADD}</h1>
+      <h1>{t("TITLE.ADD")}</h1>
       <Form
         className="form-content"
         layout="vertical"
@@ -75,12 +77,12 @@ const AddServices = () => {
         
       >
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TITLE}
+          label={t("FORMDATA.TITLE")}
         >
           <Input disabled={formDisabled} className="input" name="title" onChange={handleInputChange} />
         </Form.Item>
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
+          label={t("FORMDATA.TYPE")}
         >
           <Select
             disabled={formDisabled}
@@ -92,23 +94,23 @@ const AddServices = () => {
             }
           >
             <Select.Option value="Pavement">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_PAVEMENT}
+              {t("FORMDATA.TYPE_PAVEMENT")}
             </Select.Option>
             <Select.Option value="Concrete">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_CONCRETE}
+              {t("FORMDATA.TYPE_CONCRETE")}
             </Select.Option>
             <Select.Option value="Foundation">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_FOUNDATIONING}
+              {t("FORMDATA.TYPE_FOUNDATIONING")}
             </Select.Option>
             <Select.Option value="Infra Service">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_INFRA_SERVICE}
+              {t("FORMDATA.TYPE_INFRA_SERVICE")}
             </Select.Option>
           </Select>
         </Form.Item>
         <div className="date-container">
           <Form.Item
           
-            label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_START}
+            label={t("FORMDATA.START")}
           >
             <DatePicker
             disabled={formDisabled}
@@ -124,7 +126,7 @@ const AddServices = () => {
           </Form.Item>
 
           <Form.Item
-            label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_END}
+            label={t("FORMDATA.END")}
           >
             <DatePicker
             disabled={formDisabled}
@@ -141,7 +143,7 @@ const AddServices = () => {
         </div>
         <Form.Item
           label={
-            resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CUSTOMER
+            t("FORMDATA.CUSTOMER")
           }
         >
           <Input
@@ -153,7 +155,7 @@ const AddServices = () => {
         </Form.Item>
 
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
+          label={t("FORMDATA.COUNTRY")}
         >
           <Select
           disabled={formDisabled}
@@ -165,19 +167,19 @@ const AddServices = () => {
             }
           >
             <Select.Option value="Sweden">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_SWEDEN}
+              {t("FORMDATA.SWEDEN")}
             </Select.Option>
             <Select.Option value="Denmark">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_DENMARK}
+              {t("FORMDATA.DENMARK")}
             </Select.Option>
             <Select.Option value="Norway">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_NORWAY}
+              {t("FORMDATA.NORWAY")}
             </Select.Option>
           </Select>
         </Form.Item>
 
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
+          label={t("FORMDATA.CITY")}
         >
           <Select
           disabled={formDisabled}
@@ -190,35 +192,35 @@ const AddServices = () => {
           >
             <Select.Option value=""></Select.Option>
             <Select.Option value="Stockholm">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_STOCKHOLM}
+              {t("FORMDATA.STOCKHOLM")}
             </Select.Option>
             <Select.Option value="Copenhagen">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_COPENHAGEN}
+              {t("FORMDATA.COPENHAGEN")}
             </Select.Option>
             <Select.Option value="Oslo">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_OSLO}
+              {t("FORMDATA.OSLO")}
             </Select.Option>
           </Select>
         </Form.Item>
 
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_STATUS}
+          label={t("FORMDATA.STATUS")}
           valuePropName="checked"
           name="status"
         >
           <div className="status-container">
             <p style={{ margin: "0 0.5rem" }}>
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED}
+              {t("FORMDATA.STATUS_NOTSTARTED")}
             </p>
             <Switch disabled={formDisabled} defaultChecked={false} onChange={handleSwitch} />
             <p style={{ margin: "0 0.5rem" }}>
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING}
+              {t("FORMDATA.STATUS_ONGOING")}
             </p>
           </div>
         </Form.Item>
         <div className="add-form-button-div">
           <Button style={{ color: "#153275", borderRadius: "1rem", border: "2px solid #153275", fontWeight: "bold", padding: ".5rem", display: "flex", justifyContent: "center", alignItems: "center"}} disabled={formDisabled} onClick={handleSubmit}>
-            {resources.BUTTON.BUTTON_PLACEHOLDER_SUBMIT}
+            {t("BUTTON.SUBMIT")}
           </Button>
         </div>
       </Form>

@@ -4,8 +4,11 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import ServiceProvider from "./Context/service.context";
+import "./locales/i18next";
 
 import reportWebVitals from "./reportWebVitals";
+
+
 
 ReactDOM.render(
   <React.StrictMode>

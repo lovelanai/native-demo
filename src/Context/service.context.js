@@ -33,6 +33,9 @@ const ServiceProvider = (props) => {
   const [services, setServices] = useState([service]);
   const [errorMessage, setErrorMessage] = useState(false)
   const [formDisabled, setFormDisabled] = useState(false)
+  const [language, setLanguage] = useState("ENG")
+
+  console.log(language)
 
  
 
@@ -135,6 +138,8 @@ const ServiceProvider = (props) => {
         errorMessage,
         setFormDisabled,
         formDisabled,
+        language,
+        setLanguage,
       }}
     >
       {props.children}

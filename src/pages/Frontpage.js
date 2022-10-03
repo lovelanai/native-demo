@@ -1,16 +1,21 @@
 import { Space } from "antd";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import concreteImg from "../Assets/concrete.png";
 import foundationImg from "../Assets/foundationing.jpg";
 import infraServiceImg from "../Assets/infra-service.jpg";
 import pavementImg from "../Assets/pavement.jpg";
 import { useService } from "../Context/service.context";
-import { resources } from "../resource";
+
 import "../Style/Frontpage.sass";
 import {FaEllipsisH} from "react-icons/fa"
+import { useTranslation } from "react-i18next";
 
 const Frontpage = () => {
+
+  const { t, i18n } = useTranslation("translation");
+
+
 
 
   const { getServiceById, id, setId, services} = useService();
@@ -33,36 +38,29 @@ const Frontpage = () => {
     console.log(id);
   };
 
-
-  /* const goToEdit = (e) => {
-    setId(e.target.value);
-    console.log(service.id)
-    navigate("/edit") 
-  };*/
-
   return (
     <div className="container">
-      <h1 style={{ textAlign: "center" }}>
-        {resources.TITLES.TITLES_PLACEHOLDER_HEADER}
+       <h1 style={{ textAlign: "center" }}>
+        {t("TITLE.HEADER")}
       </h1>
       <div className="search">
         <input
-          placeholder={resources.INPUT.INPUT_PLACEHOLDER_ENTERID}
+          placeholder={t("INPUT.ENTERID")}
           type="number"
           onChange={onChangeInput}
           value={id}
           style={{ width: "300px" }}
         />
         <button onClick={fetchServiceById}>
-          {resources.BUTTON.BUTTON_PLACEHOLDER_SEARCH}
+          {t("BUTTON.SEARCH")}
         </button>
       </div>
       <br />
       <Space size="middle" style={{ margin: 10 }}>
-        <button>{resources.BUTTON.BUTTON_PLACEHOLDER_REFRESH}</button>
+        <button>{t("BUTTON.REFRESH")}</button>
 
         <button onClick={addNewService}>
-          {resources.BUTTON.BUTTON_PLACEHOLDER_ADD}
+          {t("BUTTON.ADD")}
         </button>
       </Space>
       <br />
@@ -75,35 +73,35 @@ const Frontpage = () => {
                 <b>{service.title}</b> 
               </h3>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_ID}</b>  {service.id}
+                {t("SERVICES.ID")}</b>  {service.id}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_SERVICE}</b>  {service.type}
+                {t("SERVICES.SERVICE")}</b>  {service.type}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_START}</b>  {service.start}
+                 {t("SERVICES.START")}</b>  {service.start}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_DONE}</b>  {service.done}
+                 {t("SERVICES.DONE")}</b>  {service.done}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_CUSTOMER}</b> {" "}
+                 {t("SERVICES.CUSTOMER")}</b> {" "}
                 {service.customer}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_COUNTRY}</b> {" "}
+                 {t("SERVICES.COUNTRY")}</b> {" "}
                 {service.country}
               </p>
               <p><b>
-                {resources.SERVICES.SERVICE_PLACEHOLDER_CITY}</b>  {service.city}
+                 {t("SERVICES.CITY")}</b>  {service.city}
               </p>
               <p>
-                <b>{resources.SERVICES.SERVICE_PLACEHOLDER_STATUS} </b> {service.status}
+                <b> {t("SERVICES.STATUS")} </b> {service.status}
               </p>
             </div>
             
             <div className="service-img">
-            <FaEllipsisH className="edit-icon"/>
+           <Link to={`/edit/${service.id}`}> <FaEllipsisH className="edit-icon" /> </Link>
               {service.type === "Pavement" ? (
                 
                 
@@ -135,7 +133,7 @@ const Frontpage = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> 
       </div>
   );
 };

@@ -1,0 +1,79 @@
+{
+
+  "TITLE": {
+    "HEADER": "Services",
+    "ADD": "Add new service",
+    "EDIT": "Edit service"
+},
+
+
+  "BUTTON": {
+    "ADD": "Add new",
+    "SEARCH": "Search",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "SHOW": "Show all",
+    "REFRESH": "Refresh",
+    "UPDATE": "Update",
+    "CANCEL": "Cancel",
+    "SUBMIT": "Submit"
+  },
+
+   "SERVICES": {
+    "TITLE": "Project:",
+    "ID": "id:",
+    "SERVICE": "Service:",
+    "CUSTOMER": "Customer:",
+    "COUNTRY": "Country:",
+    "CITY": "City:",
+    "STATUS": "Status:",
+    "START": "Start:",
+    "DONE": "Done:"
+  },
+
+  "INPUT": {
+    "ENTERID": "Enter Service Id"
+  },
+
+  "FORMDATA": {
+    "TYPE_PAVEMENT": "Pavement",
+    "TYPE_CONCRETE": "Concrete",
+    "TYPE_FOUNDATIONING": "Foundationing",
+    "TYPE_INFRA_SERVICE": "Infra Service",
+
+    "COUNTRIES_SWEDEN": "Sweden",
+    "COUNTRIES_DENMARK": "Denmark",
+    "COUNTRIES_NORWAY": "Norway",
+
+    "CITIES_STOCKHOLM": "Stockholm",
+    "CITIES_COPENHAGEN": "Copenhagen",
+    "CITIES_OSLO": "Oslo",
+
+    "STATUS_ONGOING": "Ongoing",
+    "STATUS_NOTSTARTED": "Not started",
+
+    "TITLE": "Project Name",
+    "TYPE": "Select type of service",
+    "START": "Start",
+    "END": "End",
+    "CUSTOMER": "Customer",
+    "COUNTRY": "Select Country",
+    "CITY": "Select City",
+    "STATUS": "Project Status",
+    "BUTTON": "Update"
+  },
+  
+  
+  "SWALDATA": {
+    "QUESTION": "Are you sure?",
+    "QUESTION_TEXT": "You won't be able to revert this!",
+    "CONFIRM_BUTTON": "Yes, delete it!",
+    "CANCEL_BUTTON": "No, cancel!",
+    "DELETE_SUCESS": "Service deleted!",
+    "DELETE_SUCESS_SPAN": "Redirecting to homepage...",
+    "EDIT_SUCESS": "Service edited!",
+    "EDIT_SUCESS_SPAN": "Redirecting to homepage..."
+  } 
+
+
+}

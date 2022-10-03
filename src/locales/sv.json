@@ -1,0 +1,79 @@
+{
+
+  "TITLE": {
+    "HEADER": "Projekt",
+    "ADD": "Lägg till projekt",
+    "EDIT": "Ändra projekt"
+},
+
+
+  "BUTTON": {
+    "ADD": "Lägg till",
+    "SEARCH": "Sök",
+    "EDIT": "Redigera",
+    "DELETE": "Ta bort",
+    "SHOW": "Visa alla",
+    "REFRESH": "Ladda om",
+    "UPDATE": "Uppdatera",
+    "CANCEL": "Avbryt",
+    "SUBMIT": "Bekräfta"
+  },
+
+   "SERVICES": {
+    "TITLE": "Projekt:",
+    "ID": "id:",
+    "SERVICE": "Projekt:",
+    "CUSTOMER": "Kund:",
+    "COUNTRY": "Land:",
+    "CITY": "Stad:",
+    "STATUS": "Status:",
+    "START": "Start:",
+    "DONE": "Slut:"
+  },
+
+  "INPUT": {
+    "ENTERID": "Ange projektid"
+  },
+
+  "FORMDATA": {
+    "TYPE_PAVEMENT": "Markarbete",
+    "TYPE_CONCRETE": "Betong",
+    "TYPE_FOUNDATIONING": "Grundläggning",
+    "TYPE_INFRA_SERVICE": "Infratjänst",
+
+    "COUNTRIES_SWEDEN": "Sverige",
+    "COUNTRIES_DENMARK": "Danmark",
+    "COUNTRIES_NORWAY": "Norge",
+
+    "CITIES_STOCKHOLM": "Stockholm",
+    "CITIES_COPENHAGEN": "Köpenhamn",
+    "CITIES_OSLO": "Oslo",
+
+    "STATUS_ONGOING": "Pågående",
+    "STATUS_NOTSTARTED": "Ej påbörjad",
+
+    "TITLE": "Projektnamn",
+    "TYPE": "Välj typ av projekt",
+    "START": "Start",
+    "END": "Slut",
+    "CUSTOMER": "Kund",
+    "COUNTRY": "Välj land",
+    "CITY": "Välj stad",
+    "STATUS": "Projektstatus",
+    "BUTTON": "Uppdatera"
+  },
+  
+  
+  "SWALDATA": {
+    "QUESTION": "Are you sure?",
+    "QUESTION_TEXT": "You won't be able to revert this!",
+    "CONFIRM_BUTTON": "Yes, delete it!",
+    "CANCEL_BUTTON": "No, cancel!",
+    "DELETE_SUCESS": "Service deleted!",
+    "DELETE_SUCESS_SPAN": "Redirecting to homepage...",
+    "EDIT_SUCESS": "Service edited!",
+    "EDIT_SUCESS_SPAN": "Redirecting to homepage..."
+  } 
+
+
+}

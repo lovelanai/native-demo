@@ -5,7 +5,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useService } from "../Context/service.context";
 import Swal from "sweetalert2";
-import { resources } from "../resource";
+
 import "../Style/Form.sass";
 
 const UpdateService = () => {
