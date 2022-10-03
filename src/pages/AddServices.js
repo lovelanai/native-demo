@@ -22,8 +22,8 @@ const AddServices = () => {
 
     let timerInterval = Swal.fire({
       icon: "success",
-      title: `${t("SWALDATA.DELETE_SUCESS")}`,
-      html: `${t("SWALDATA.DELETE_SUCESS_SPAN")}`,
+      title: `${t("SWALDATA.ADD_SUCCESS")}`,
+      html: `${t("SWALDATA.ADD_SUCCESS_SPAN")}`,
       timer: 2000,
       timerProgressBar: true,
       didOpen: () => {
@@ -51,12 +51,12 @@ const AddServices = () => {
     if (checked) {
       setService({
         ...service,
-        status: `${t("FORMDATA.STATUS_ONGOING")}`,
+        status: "FORMDATA.STATUS_ONGOING",
       });
     } else {
       setService({
         ...service,
-        status: `${t("FORMDATA.PLACEHOLDER_STATUS_NOTSTARTED")}`,
+        status: "FORMDATA.STATUS_NOTSTARTED",
       });
     }
   };
@@ -93,16 +93,16 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "type" } })
             }
           >
-            <Select.Option value="Pavement">
+            <Select.Option value="FORMDATA.TYPE_PAVEMENT">
               {t("FORMDATA.TYPE_PAVEMENT")}
             </Select.Option>
-            <Select.Option value="Concrete">
+            <Select.Option value="FORMDATA.TYPE_CONCRETE">
               {t("FORMDATA.TYPE_CONCRETE")}
             </Select.Option>
-            <Select.Option value="Foundation">
+            <Select.Option value="FORMDATA.TYPE_FOUNDATIONING">
               {t("FORMDATA.TYPE_FOUNDATIONING")}
             </Select.Option>
-            <Select.Option value="Infra Service">
+            <Select.Option value="FORMDATA.TYPE_INFRA_SERVICE">
               {t("FORMDATA.TYPE_INFRA_SERVICE")}
             </Select.Option>
           </Select>
@@ -116,6 +116,7 @@ const AddServices = () => {
             disabled={formDisabled}
               name="start"
               className="input"
+              placeholder= {t("FORMDATA.SELECT-DATE")}
               type="dateString"
               onChange={(date, dateString) =>
                 handleInputChange({
@@ -131,6 +132,7 @@ const AddServices = () => {
             <DatePicker
             disabled={formDisabled}
               name="done"
+              placeholder= {t("FORMDATA.SELECT-DATE")}
               className="input"
               type="dateString"
               onChange={(date, dateString) =>
@@ -166,14 +168,15 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "country" } })
             }
           >
-            <Select.Option value="Sweden">
-              {t("FORMDATA.SWEDEN")}
+            <Select.Option value="FORMDATA.COUNTRIES_SWEDEN">
+              {t("FORMDATA.COUNTRIES_SWEDEN")}
+              
             </Select.Option>
-            <Select.Option value="Denmark">
-              {t("FORMDATA.DENMARK")}
+            <Select.Option value="FORMDATA.COUNTRIES_DENMARK">
+              {t("FORMDATA.COUNTRIES_DENMARK")}
             </Select.Option>
-            <Select.Option value="Norway">
-              {t("FORMDATA.NORWAY")}
+            <Select.Option value="FORMDATA.COUNTRIES_NORWAY">
+              {t("FORMDATA.COUNTRIES_NORWAY")}
             </Select.Option>
           </Select>
         </Form.Item>
@@ -190,15 +193,15 @@ const AddServices = () => {
               handleInputChange({ target: { value: select, name: "city" } })
             }
           >
-            <Select.Option value=""></Select.Option>
-            <Select.Option value="Stockholm">
-              {t("FORMDATA.STOCKHOLM")}
+           
+            <Select.Option value="FORMDATA.CITIES_STOCKHOLM">
+         {t("FORMDATA.CITIES_STOCKHOLM")}
             </Select.Option>
-            <Select.Option value="Copenhagen">
-              {t("FORMDATA.COPENHAGEN")}
+            <Select.Option value="FORMDATA.CITIES_COPENHAGEN">
+              {t("FORMDATA.CITIES_COPENHAGEN")}
             </Select.Option>
-            <Select.Option value="Oslo">
-              {t("FORMDATA.OSLO")}
+            <Select.Option value="FORMDATA.CITIES_OSLO">
+              {t("FORMDATA.CITIES_OSLO")}
             </Select.Option>
           </Select>
         </Form.Item>

@@ -5,10 +5,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useService } from "../Context/service.context";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next"
 
 import "../Style/Form.sass";
 
 const UpdateService = () => {
+  const { t, i18n } = useTranslation("translation");
   const navigate = useNavigate();
   const { service, setService, updateService, formDisabled } = useService();
 
@@ -22,8 +24,8 @@ const UpdateService = () => {
 
     let timerInterval = Swal.fire({
       icon: "success",
-      title: `${resources.SWALDATA.SWALDATA_EDIT_SUCESS}`,
-      html: `${resources.SWALDATA.SWALDATA_EDIT_SUCESS_SPAN}`,
+      title: `${t("SWALDATA.EDIT_SUCCESS")}`,
+      html: `${t("SWALDATA.EDIT_SUCCESS_SPAN")}`,
       timer: 2000,
       timerProgressBar: true,
       didOpen: () => {
@@ -44,26 +46,26 @@ const UpdateService = () => {
     if (checked) {
       setService({
         ...service,
-        status: resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING,
+        status: "FORMDATA.STATUS_ONGOING",
       });
     } else {
       setService({
         ...service,
-        status: resources.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED,
+        status: "FORMDATA.STATUS_NOTSTARTED"
       });
     }
   };
 
   return (
     <div className="form">
-      <h1>{resources.TITLES.TITLES_PLACEHOLDER_EDIT}</h1>
+      <h1>{t("TITLE.EDIT")}</h1>
       <Form
         className="form-content"
         layout="vertical"
         onSubmit={(e) => e.preventDefault()}
       >
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TITLE}
+        label={t("FORMDATA.TITLE")}
         >
           <Input
           disabled={formDisabled}
@@ -74,8 +76,7 @@ const UpdateService = () => {
           />
         </Form.Item>
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_TYPE}
-        >
+    label={t("FORMDATA.TYPE")}        >
           <Select
           disabled={formDisabled}
             className="select"
@@ -86,26 +87,27 @@ const UpdateService = () => {
               handleInputChange({ target: { value: select, name: "type" } })
             }
           >
-            <Select.Option value="Pavement">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_PAVEMENT}
+            <Select.Option value="FORMDATA.TYPE_PAVEMENT">
+                    {t("FORMDATA.TYPE_PAVEMENT")}
             </Select.Option>
-            <Select.Option value="Concrete">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_CONCRETE}
+            <Select.Option value="FORMDATA.TYPE_CONCRETE">
+                     {t("FORMDATA.TYPE_CONCRETE")}
             </Select.Option>
-            <Select.Option value="Foundation">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_FOUNDATIONING}
+            <Select.Option value="FORMDATA.TYPE_FOUNDATIONING">
+        {t("FORMDATA.TYPE_FOUNDATIONING")}
             </Select.Option>
-            <Select.Option value="Infra Service">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_TYPE_INFRA_SERVICE}
+            <Select.Option value="FORMDATA.TYPE_INFRA_SERVICE">
+               {t("FORMDATA.TYPE_INFRA_SERVICE")}
             </Select.Option>
           </Select>
         </Form.Item>
         <div className="date-container">
           <Form.Item
-            label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_START}
+               label={t("FORMDATA.START")}
           >
             <DatePicker
             disabled={formDisabled}
+            placeholder= {t("FORMDATA.SELECT-DATE")}
               className="input"
               name="start"
               type="dateString"
@@ -119,10 +121,11 @@ const UpdateService = () => {
           </Form.Item>
 
           <Form.Item
-            label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_END}
+           label={t("FORMDATA.END")}
           >
             <DatePicker
             disabled={formDisabled}
+            placeholder= {t("FORMDATA.SELECT-DATE")}
               className="input"
               name="done"
               type="dateString"
@@ -137,7 +140,7 @@ const UpdateService = () => {
         </div>
         <Form.Item
           label={
-            resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CUSTOMER
+              t("FORMDATA.CUSTOMER")
           }
         >
           <Input
@@ -150,7 +153,7 @@ const UpdateService = () => {
         </Form.Item>
 
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_COUNTRY}
+        label={t("FORMDATA.COUNTRY")}
         >
           <Select
           disabled={formDisabled}
@@ -162,20 +165,20 @@ const UpdateService = () => {
               handleInputChange({ target: { value: select, name: "country" } })
             }
           >
-            <Select.Option value="Sweden">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_SWEDEN}
+            <Select.Option value="FORMDATA.COUNTRIES_SWEDEN">
+                  {t("FORMDATA.COUNTRIES_SWEDEN")}
             </Select.Option>
-            <Select.Option value="Denmark">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_DENMARK}
+            <Select.Option value="FORMDATA.COUNTRIES_DENMARK">
+                {t("FORMDATA.COUNTRIES_DENMARK")}
             </Select.Option>
-            <Select.Option value="Norway">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_COUNTRIES_NORWAY}
+            <Select.Option value="FORMDATA.COUNTRIES_NORWAY">
+                {t("FORMDATA.COUNTRIES_NORWAY")}
             </Select.Option>
           </Select>
         </Form.Item>
 
         <Form.Item
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_CITY}
+            label={t("FORMDATA.CITY")}
         >
           <Select
           disabled={formDisabled}
@@ -187,26 +190,26 @@ const UpdateService = () => {
               handleInputChange({ target: { value: select, name: "city" } })
             }
           >
-            <Select.Option value="Stockholm">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_STOCKHOLM}
+            <Select.Option value="FORMDATA.CITIES_STOCKHOLM">
+               {t("FORMDATA.CITIES_STOCKHOLM")}
             </Select.Option>
-            <Select.Option value="Copenhagen">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_COPENHAGEN}
+            <Select.Option value="FORMDATA.CITIES_COPENHAGEN">
+                       {t("FORMDATA.CITIES_COPENHAGEN")}
             </Select.Option>
-            <Select.Option value="Oslo">
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_CITIES_OSLO}
+            <Select.Option value="FORMDATA.CITIES_OSLO">
+                          {t("FORMDATA.CITIES_OSLO")}
             </Select.Option>
           </Select>
         </Form.Item>
 
         <div
-          label={resources.FORMDATA.FORMDATA_PLACEHOLDER_LABELS_PROJECT_STATUS}
+          label={t("FORMDATA.STATUS")}
           valuePropName="checked"
           name="status"
         >
           <div className="status-container">
             <p style={{ margin: "0 0.5rem" }}>
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_NOTSTARTED}
+       {t("FORMDATA.STATUS_NOTSTARTED")}
             </p>
 
             <Switch
@@ -216,7 +219,7 @@ const UpdateService = () => {
             />
 
             <p style={{ margin: "0 0.5rem" }}>
-              {resources.FORMDATA.FORMDATA_PLACEHOLDER_STATUS_ONGOING}
+            {t("FORMDATA.STATUS_ONGOING")}
             </p>
           </div>
         </div>
@@ -229,7 +232,7 @@ const UpdateService = () => {
               handleSubmit();
             }}
           >
-            {resources.BUTTON.BUTTON_PLACEHOLDER_SUBMIT}
+            {t("BUTTON.SUBMIT")}
           </Button>
           <button
             className="edit-form-buttons cancel-button"
@@ -237,7 +240,7 @@ const UpdateService = () => {
               navigate("/");
             }}
           >
-            {resources.BUTTON.BUTTON_PLACEHOLDER_CANCEL}
+            {t("BUTTON.CANCEL")}
           </button>
         </div>
       </Form>

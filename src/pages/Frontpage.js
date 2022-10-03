@@ -76,7 +76,7 @@ const Frontpage = () => {
                 {t("SERVICES.ID")}</b>  {service.id}
               </p>
               <p><b>
-                {t("SERVICES.SERVICE")}</b>  {service.type}
+                {t("SERVICES.SERVICE")}</b>  {t(`${service.type}`)}
               </p>
               <p><b>
                  {t("SERVICES.START")}</b>  {service.start}
@@ -90,28 +90,28 @@ const Frontpage = () => {
               </p>
               <p><b>
                  {t("SERVICES.COUNTRY")}</b> {" "}
-                {service.country}
+                 {t(`${service.country}`)}
               </p>
               <p><b>
-                 {t("SERVICES.CITY")}</b>  {service.city}
+                 {t("SERVICES.CITY")}</b>  {t(`${service.city}`)}
               </p>
               <p>
-                <b> {t("SERVICES.STATUS")} </b> {service.status}
+                <b> {t("SERVICES.STATUS")} </b> {t(`${service.status}`)}
               </p>
             </div>
             
             <div className="service-img">
            <Link to={`/edit/${service.id}`}> <FaEllipsisH className="edit-icon" /> </Link>
-              {service.type === "Pavement" ? (
+              {service.type === "FORMDATA.TYPE_PAVEMENT"  ? (
                 
                 
                 <img className="type-img" src={pavementImg} alt="Pavement" />
                 
-              ) : service.type === "Concrete" ? (
+              ) : service.type === "FORMDATA.TYPE_CONCRETE" ? (
                
                 <img className="type-img" src={concreteImg} alt="Concrete" />
                
-              ) : service.type === "Infra Service" ? (
+              ) : service.type === "FORMDATA.TYPE_INFRA_SERVICE" ? (
                 
                 <img
                   className="type-img"
@@ -119,7 +119,7 @@ const Frontpage = () => {
                   alt="Infra Service"
                 />
                 
-              ) : service.type === "Foundation" ? (
+              ) : service.type === "FORMDATA.TYPE_FOUNDATIONING" ? (
                 
                 <img
                   className="type-img"

@@ -1,9 +1,11 @@
 import {Alert, Space, Button} from 'antd'
 import { useService } from "../Context/service.context";
 //import { resources } from "../resource";
+import { useTranslation } from "react-i18next";
 
 
 export default function ErrorMessage () {
+  const { t, i18n } = useTranslation("translation");
    
     const { errorMessage } = useService();
 
@@ -18,12 +20,12 @@ export default function ErrorMessage () {
     <Alert
     style={{width: '15rem'}}
     className="error-message"
-    message="You're offline"
+    message= {`${t("ERRORMESSAGE.MESSAGE")}`}
     type="warning"
     action={
       <Space>
         <Button size="small" type="ghost" onClick={refreshPage}>
-          Reconnect
+          {t("ERRORMESSAGE.ERRORBTN")}
         </Button>
       </Space>
     }

@@ -1,81 +1,26 @@
 {
   "service": [
     {
-      "title": "Kungälvs rökStationer",
-      "type": "Infra Service",
-      "start": "2022-01",
-      "done": "2022-06",
-      "customer": "Gregers wcservice AB",
-      "country": "Sweden",
-      "city": "Copenhagen",
-      "status": "Not started",
-      "id": 2
-    },
-    {
-      "title": "Liseberg AB",
-      "type": "Pavement",
-      "start": "2022-04",
-      "done": "2022-05",
-      "customer": "Direktör Love Co,. Ltd",
-      "country": "Sweden",
-      "city": "Stockholm",
-      "status": "Ongoing",
-      "id": 3
-    },
-    {
-      "title": "Legoland",
-      "type": "Foundation",
-      "start": "2022-03",
-      "done": "2023-03",
-      "customer": "Legoland AB",
-      "country": "Denmark",
-      "city": "Copenhagen",
-      "status": "Ongoing",
-      "id": 4
-    },
-    {
-      "title": "Vaska guld",
-      "type": "Concrete",
-      "start": "2022-09-14",
-      "done": "2022-10-08",
-      "customer": "HiQ",
-      "country": "Denmark",
-      "city": "Copenhagen",
-      "status": "Ongoing",
-      "id": 5
-    },
-    {
-      "title": "Globen",
-      "type": "Foundation",
-      "start": "2022-09-01",
-      "done": "2022-09-03",
-      "customer": "Stockholm Stad",
-      "country": "Sweden",
-      "city": "Stockholm",
-      "status": "Ongoing",
-      "id": 6
-    },
-    {
-      "title": "Skansen Kronan",
-      "type": "Infra Service",
-      "start": "2022-09-28",
-      "done": "2022-09-28",
+      "title": "Arnes Kioskkh",
+      "type": "FORMDATA.TYPE_CONCRETE",
+      "start": "2022-10-06",
+      "done": "2022-10-05",
       "customer": "Direktör Love",
-      "country": "Sweden",
-      "city": "Oslo",
-      "status": "Not started",
-      "id": 7
+      "country": "FORMDATA.COUNTRIES_DENMARK",
+      "city": "FORMDATA.CITIES_COPENHAGEN",
+      "status": "FORMDATA.STATUS_ONGOING",
+      "id": 1
     },
     {
-      "title": "HiQ gaminghörna",
-      "type": "Pavement",
-      "start": "2022-09-30",
-      "done": "2022-10-13",
-      "customer": "Dick",
-      "country": "Denmark",
-      "city": "Copenhagen",
-      "status": "Ongoing",
-      "id": 8
+      "title": "Loves Kattarsle",
+      "type": "FORMDATA.TYPE_INFRA_SERVICE",
+      "start": "2022-10-01",
+      "done": "2022-10-29",
+      "customer": "Simon Co,. Ltd",
+      "country": "FORMDATA.COUNTRIES_SWEDEN",
+      "city": "FORMDATA.CITIES_STOCKHOLM",
+      "status": "FORMDATA.STATUS_NOTSTARTED",
+      "id": 2
     }
   ]
 }

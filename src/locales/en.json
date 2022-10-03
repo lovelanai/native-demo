@@ -6,6 +6,10 @@
     "EDIT": "Edit service"
 },
 
+"ERRORMESSAGE": {
+  "MESSAGE": "You're offline",
+  "ERRORBTN": "Reconnect"
+},
 
   "BUTTON": {
     "ADD": "Add new",
@@ -60,7 +64,9 @@
     "COUNTRY": "Select Country",
     "CITY": "Select City",
     "STATUS": "Project Status",
-    "BUTTON": "Update"
+    "BUTTON": "Update",
+
+    "SELECT-DATE": "Select date"
   },
   
   
@@ -69,10 +75,12 @@
     "QUESTION_TEXT": "You won't be able to revert this!",
     "CONFIRM_BUTTON": "Yes, delete it!",
     "CANCEL_BUTTON": "No, cancel!",
-    "DELETE_SUCESS": "Service deleted!",
-    "DELETE_SUCESS_SPAN": "Redirecting to homepage...",
-    "EDIT_SUCESS": "Service edited!",
-    "EDIT_SUCESS_SPAN": "Redirecting to homepage..."
+    "DELETE_SUCCESS": "Service deleted!",
+    "DELETE_SUCCESS_SPAN": "Redirecting to homepage...",
+    "EDIT_SUCCESS": "Service edited!",
+    "EDIT_SUCCESS_SPAN": "Redirecting to homepage...",
+    "ADD_SUCCESS": "Service added!",
+    "ADD_SUCCESS_SPAN": "Redirecting to homepage..."
   } 
 
 
