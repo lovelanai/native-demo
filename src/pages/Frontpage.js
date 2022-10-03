@@ -13,7 +13,7 @@ import {FaEllipsisH} from "react-icons/fa"
 const Frontpage = () => {
 
 
-  const { getServiceById, id, setId, services, service} = useService();
+  const { getServiceById, id, setId, services} = useService();
 
 
   const navigate = useNavigate();
