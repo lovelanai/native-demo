@@ -10,6 +10,8 @@ export const makeReq = async (url, method, body) => {
     body: JSON.stringify(body),
     headers: {
       "Content-Type": "application/json",
+      "X-Master-Key":
+        "$2b$10$OQ3ce1lt6KMSL.WQvFVYBOOpe5a8Itq2VL6o73aDcT7AqZ/UaD1HK",
     },
   });
 
@@ -31,24 +33,25 @@ const ServiceProvider = (props) => {
   });
 
   const [services, setServices] = useState([service]);
-  const [errorMessage, setErrorMessage] = useState(false)
-  const [formDisabled, setFormDisabled] = useState(false)
-  const [language, setLanguage] = useState("ENG")
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [formDisabled, setFormDisabled] = useState(false);
+  const [language, setLanguage] = useState("ENG");
 
-  console.log(language)
+  console.log(language);
 
- 
-
-  console.log('error?', errorMessage)
+  console.log("error?", errorMessage);
   // Gets all services
   const getAllServices = async () => {
     try {
-      const response = await makeReq("http://localhost:4000/service", "GET");
+      const response = await makeReq(
+        "https://api.jsonbin.io/v3/b/633e70cd2b3499323bd4c7de",
+        "GET"
+      );
       setServices(response);
     } catch (err) {
       setServices(storedServices);
-      setErrorMessage(true)
-      setFormDisabled(true)
+      setErrorMessage(true);
+      setFormDisabled(true);
       console.log(err);
     }
   };
@@ -64,7 +67,7 @@ const ServiceProvider = (props) => {
     } catch (err) {
       console.log(err);
       setService(storedServices[id - 1]);
-      setErrorMessage(true)
+      setErrorMessage(true);
     }
   };
 
@@ -75,15 +78,13 @@ const ServiceProvider = (props) => {
         `http://localhost:4000/service/${service.id}`,
         "PUT",
         service
-        
       );
-      services.push(response)
-      getAllServices()
+      services.push(response);
+      getAllServices();
     } catch (err) {
       console.log(err);
-      setErrorMessage(true)
+      setErrorMessage(true);
     }
-  
   };
 
   // Create new service
@@ -97,7 +98,7 @@ const ServiceProvider = (props) => {
       services.push(response);
     } catch (err) {
       console.log(err);
-      setErrorMessage(true)
+      setErrorMessage(true);
     }
   };
 
@@ -114,7 +115,7 @@ const ServiceProvider = (props) => {
       getAllServices();
     } catch (err) {
       console.log(err);
-      setErrorMessage(true)
+      setErrorMessage(true);
     }
   };
 
